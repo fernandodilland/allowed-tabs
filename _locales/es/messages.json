@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Mi aplicación",
+    "description": "El título de la aplicación, mostrado en la tienda web."
+  },
+  "appDesc": {
+    "message": "Esta aplicación hace algo increíble.",
+    "description":"La descripción de la aplicación, mostrada en la tienda web."
+  }
+}
