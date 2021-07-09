@@ -4,5 +4,18 @@
   },
   "extensionDesc": {
     "message": "Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador."
-  }
+  },
+
+  "text_developer": {
+        "message": "Extensión realizada por:",
+        "description": "Texto introductorio"
+   },
+   "link001": {
+        "message": "Fernando Dilland",
+        "description": "Nombre de link para la página"
+   },
+   "prompt001": {
+        "message": "GitHub",
+        "description": "Texto que se muestra al pasar el mouse por el link"
+   }
 }
