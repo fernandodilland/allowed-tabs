@@ -1,1 +1,18 @@
 <div>Extension made by: <a href="https://github.com/fernandomireles" title="Fernando Mireles">Fernando Mireles</a>.</div>
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Time right now is: </title>
+</head>
+<body>
+<script>
+text = chrome.i18n.getMessage("extensionName");
+let d = new Date();
+document.body.innerHTML = text
+document.body.innerHTML = text()
+</script>
+</body>
+</html>
