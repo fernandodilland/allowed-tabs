@@ -1,10 +1,10 @@
 {
-  "appName": {
-    "message": "Mi aplicación",
-    "description": "El título de la aplicación, mostrado en la tienda web."
+  "extensionName": {
+    "message": "Pestañas Permitidas",
+    "description": "1 Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador."
   },
-  "appDesc": {
-    "message": "Esta aplicación hace algo increíble.",
-    "description":"La descripción de la aplicación, mostrada en la tienda web."
+  "extensionDesc": {
+    "message": "2 Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador.",
+    "description":"3 Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador."
   }
 }
