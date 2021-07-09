@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "Allowed Tabs",
+  "description": "Set the maximum number of open tabs allowed in the browser.",
+  "version": "0.0.1",
+
+  "background": {
+	"scripts": ["static/background.js"]
+  },
+  "icons": {
+    "16": "static/offline-16.png",
+    "48": "static/offline-48.png",
+    "128": "static/offline-128.png"
+  },
+  "browser_action": {
+    "default_icon": "static/offline.png",
+    "default_popup": "static/popup.html"
+  },
+  "permissions": [
+	"webRequest",
+	"http://*/",
+	"https://*/"
+  ],
+  "web_accessible_resources": [
+    "static/offline.png", "static/connected.gif"
+  ]
+}
