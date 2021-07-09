@@ -1,10 +1,8 @@
 {
   "extensionName": {
-    "message": "Pestañas Permitidas",
-    "description": "1 Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador."
+    "message": "Pestañas Permitidas"
   },
   "extensionDesc": {
-    "message": "2 Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador.",
-    "description":"3 Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador."
+    "message": "Establezca la cantidad máxima de pestañas abiertas permitidas en el navegador."
   }
 }
