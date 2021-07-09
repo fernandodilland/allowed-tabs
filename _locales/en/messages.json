@@ -1,10 +1,8 @@
 {
   "extensionName": {
-    "message": "Allowed Tabs",
-    "description": "2 Set the maximum number of open tabs allowed in the browser."
+    "message": "Allowed Tabs"
   },
   "extensionDesc": {
-    "message": "3 Set the maximum number of open tabs allowed in the browser.",
-    "description":"4 Set the maximum number of open tabs allowed in the browser."
+    "message": "Set the maximum number of open tabs allowed in the browser."
   }
 }
