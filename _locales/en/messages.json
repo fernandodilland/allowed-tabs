@@ -4,5 +4,18 @@
   },
   "extensionDesc": {
     "message": "Set the maximum number of open tabs allowed in the browser."
-  }
+  },
+
+  "text_developer": {
+        "message": "Extension made by:",
+        "description": "Introductory text"
+   },
+   "link001": {
+        "message": "Fernando Mireles",
+        "description": "Link name for the page"
+   },
+   "prompt001": {
+        "message": "GitHub",
+        "description": "Text displayed when you mouse over the link"
+   }
 }
