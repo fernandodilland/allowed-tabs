@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "author": "Fernando Dilland",
-	"homepage_url": "https://github.com/fernandodilland/static-allowed-tabs",
+	"homepage_url": "https://github.com/fernandodilland/allowed-tabs",
 
   "background": {
 	"scripts": ["static/background.js"]
