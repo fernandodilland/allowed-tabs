@@ -17,5 +17,35 @@
    "prompt001": {
         "message": "GitHub",
         "description": "Text displayed when you mouse over the link"
-   }
+   },
+
+   "string_1": {
+    "message": "Total number of tabs you will allow",
+    "description": "First text"
+  },
+
+  "string_2": {
+    "message": "Maximum in the same window",
+    "description": "Second text"
+  },
+
+  "string_3": {
+    "message": "Show remaining"
+  },
+
+  "string_4": {
+    "message": "Show pinned"
+  },
+
+  "string_5": {
+    "message": "With limit, open new window"
+  },
+
+  "string_6": {
+    "message": "Show alert"
+  },
+
+  "string_7": {
+    "message": "You have reached the limit of tabs allowed in your web browser"
+  }
 }
