@@ -142,7 +142,7 @@ const app = {
 				exceedTabNewWindow: false,
 				displayAlert: true,
 				countPinnedTabs: false,
-				displayBadge: false,
+				displayBadge: true,
 				alertMessage: chrome.i18n.getMessage("string_7")
 			}
 		});

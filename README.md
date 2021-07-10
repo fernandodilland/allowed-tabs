@@ -14,11 +14,11 @@
 
 ## Changelog
 
-`2021-09`
+`2021-07`
 
 Features:
-- Beginning of the creation of the extension.
+- Creation of the extension.
 
 ## License
 
-[speed-controller-for-html5-videos](https://github.com/fernandomireles/allowed-tabs/) are released under [MIT license](https://github.com/fernandomireles/allowed-tabs/blob/main/LICENSE) . Copyright (c) [Fernando Mireles](https://github.com/fernandomireles).
+[allowed-tabs](https://github.com/fernandomireles/allowed-tabs/) are released under [MIT license](https://github.com/fernandomireles/allowed-tabs/blob/main/LICENSE) . Copyright (c) [Fernando Mireles](https://github.com/fernandomireles).
