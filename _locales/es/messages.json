@@ -17,5 +17,35 @@
    "prompt001": {
         "message": "GitHub",
         "description": "Texto que se muestra al pasar el mouse por el link"
-   }
+   },
+
+   "string_1": {
+    "message": "Total de pestañas que permitirás",
+    "description": "Primer texto"
+  },
+
+  "string_2": {
+    "message": "Máximo en la misma ventana",
+    "description": "Segundo texto"
+  },
+
+  "string_3": {
+    "message": "Mostrar restantes"
+  },
+
+  "string_4": {
+    "message": "Mostrar fijadas"
+  },
+
+  "string_5": {
+    "message": "Con límite, abrir nueva ventana"
+  },
+
+  "string_6": {
+    "message": "Mostrar alerta"
+  },
+
+  "string_7": {
+    "message": "Has alcanzado el límite de pestañas permitidas en tu navegador web"
+  }
 }

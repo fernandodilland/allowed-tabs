@@ -1,0 +1,35 @@
+<!doctype html>
+
+<head>
+	<title>Tab Limiter's Popup</title>
+
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="options.css">
+	<script src="options.js"></script>
+</head>
+
+<body>
+	<h1>__MSG_extensionName__</h1> <!-- __MSG_extensionName__ Run the javascript managerLenguage.js script and from there replace the text with the appropriate language -->
+	<div id="options">
+		<label for="maxTotal">__MSG_string_1__ ⤵</label>
+		<input id="maxTotal" type="number" min="1" max="1337">
+
+		<label for="maxWindow">__MSG_string_2__ ⤵</label>
+		<input id="maxWindow" type="number" min="1" max="1337">
+
+		<input id="displayBadge" type="checkbox">
+		<label for="displayBadge" id="displayBadgeLabel">__MSG_string_3__</label>
+
+		<input id="countPinnedTabs" type="checkbox">
+		<label for="countPinnedTabs" id="countPinnedTabsLabel">__MSG_string_4__</label>
+
+		<input id="exceedTabNewWindow" type="checkbox">
+		<label for="exceedTabNewWindow" id="exceedTabNewWindowLabel">__MSG_string_5__</label>
+
+		<input class="isDependedOnByNextOption" id="displayAlert" type="checkbox">
+		<label for="displayAlert" id="displayAlertLabel">__MSG_string_6__</label>
+
+		<input id="alertMessage" type="text">
+	</div>
+	<script src="managerLanguage.js"></script>
+</body>
