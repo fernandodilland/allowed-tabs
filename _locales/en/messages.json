@@ -20,7 +20,7 @@
    },
 
    "string_1": {
-    "message": "Total number of tabs you will allow",
+    "message": "Total number of tabs you allow",
     "description": "First text"
   },
 
@@ -37,15 +37,23 @@
     "message": "Show pinned"
   },
 
-  "string_5": {
-    "message": "With limit, open new window"
-  },
-
   "string_6": {
     "message": "Show alert"
   },
 
   "string_7": {
     "message": "You have reached the limit of tabs allowed in your web browser"
+  },
+
+  "string_8": {
+    "message": "Will be saved automatically"
+  },
+
+  "string_9": {
+    "message": "Successfully saved"
+  },
+
+  "string_10": {
+    "message": "Developer"
   }
 }

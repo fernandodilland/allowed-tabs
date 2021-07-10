@@ -9,7 +9,7 @@
 	"homepage_url": "https://github.com/fernandomireles/static-allowed-tabs",
 
   "background": {
-	"scripts": ["background.js"]
+	"scripts": ["static/background.js"]
   },
   "icons": {
     "16": "static/icon-16.png",
@@ -18,9 +18,9 @@
   },
   "browser_action": {
     "default_icon": "static/icon-small.png",
-    "default_popup": "options.html"
+    "default_popup": "static/options.html"
   },
-  "options_page": "options.html",
+  "options_page": "static/options.html",
   "permissions": [
     "storage"
   ],

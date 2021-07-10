@@ -51,7 +51,7 @@ const saveOptions = () => {
 
 		const status = document.getElementById('status');
 		status.className = 'notice';
-		status.textContent = 'Options saved.';
+		status.textContent = chrome.i18n.getMessage("string_9");
 		setTimeout(() => {
 			status.className += ' invisible';
 		}, 100);

@@ -1,0 +1,55 @@
+{
+  "extensionName": {
+    "message": "Onglets Autorisés"
+  },
+  "extensionDesc": {
+    "message": "Définissez le nombre maximum d'onglets ouverts autorisés dans le navigateur."
+  },
+
+  "text_developer": {
+        "message": "Extension réalisée par :",
+        "description": "Texte d'introduction"
+   },
+   "link001": {
+        "message": "Fernando Mireles",
+        "description": "Nom du lien pour la page"
+   },
+   "prompt001": {
+        "message": "GitHub",
+        "description": "Texte affiché lorsque vous passez la souris sur le lien"
+   },
+
+   "string_1": {
+    "message": "Nombre total d'onglets autorisés",
+    "description": "Premier texte"
+  },
+
+  "string_2": {
+    "message": "Maximum dans la même fenêtre",
+    "description": "Deuxième texte"
+  },
+
+  "string_3": {
+    "message": "Spectacle restant"
+  },
+
+  "string_6": {
+    "message": "Afficher l'alerte"
+  },
+
+  "string_7": {
+    "message": "Vous avez atteint la limite d'onglets autorisée dans votre navigateur Web."
+  },
+
+  "string_8": {
+    "message": "Seront sauvegardés automatiquement"
+  },
+
+  "string_9": {
+    "message": "Enregistré avec succès"
+  },
+
+  "string_10": {
+    "message": "Développeur"
+  }
+}
