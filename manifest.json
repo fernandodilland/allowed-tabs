@@ -5,25 +5,25 @@
   "description": "__MSG_extensionDesc__",
   "default_locale": "en",
   "version": "0.0.1",
+  "author": "Fernando Mireles",
+	"homepage_url": "https://github.com/fernandomireles/static-allowed-tabs",
 
   "background": {
 	"scripts": ["static/background.js"]
   },
   "icons": {
-    "16": "static/offline-16.png",
-    "48": "static/offline-48.png",
-    "128": "static/offline-128.png"
+    "16": "static/icon-16.png",
+    "48": "static/icon-48.png",
+    "128": "static/icon-128.png"
   },
   "browser_action": {
-    "default_icon": "static/offline.png",
+    "default_icon": "static/icon-small.png",
     "default_popup": "static/popup.html"
   },
   "permissions": [
-	"webRequest",
-	"http://*/",
-	"https://*/"
+    "storage"
   ],
   "web_accessible_resources": [
-    "static/offline.png", "static/connected.gif"
+    "static/icon-small.png", "static/icon.png"
   ]
 }

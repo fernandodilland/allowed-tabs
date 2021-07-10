@@ -46,9 +46,9 @@ function conditionallyUpdateView(tabId) {
 function updateView([timesCurrentlyDoing /*: number */, timesAlreadyDone /*: number */]) /*: void */ {
 	chrome.browserAction.setBadgeText({ text: String(timesAlreadyDone) });
 	if (timesCurrentlyDoing > 0) {
-		chrome.browserAction.setIcon({ path: 'static/connected.gif' });
+		chrome.browserAction.setIcon({ path: 'static/icon.png' });
 	} else {
-		chrome.browserAction.setIcon({ path: 'static/offline.png' });
+		chrome.browserAction.setIcon({ path: 'static/icon-small.png' });
 	}
 }
 
