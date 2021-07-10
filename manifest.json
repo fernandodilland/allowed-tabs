@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "author": "Fernando Mireles",
-	"homepage_url": "https://github.com/fernandomireles/static-allowed-tabs",
+	"homepage_url": "https://github.com/fernandomireles/allowed-tabs",
 
   "background": {
 	"scripts": ["static/background.js"]
