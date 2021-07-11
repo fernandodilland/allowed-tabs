@@ -6,11 +6,11 @@
 
 ## Install (Chrome/Edge)
 
-1. download zip file from github and uncompress to local.
+1. Download zip file from github and uncompress to local.
 
-2. open Extensions (chrome://extensions) from chrome.
+2. Open Extensions (chrome://extensions) from chrome.
 
-3. Choose `Load unpacked`(Open Develop Mode first)，Click folder you just uncompressed, finish!
+3. Choose `Load unpacked` (Open Develop Mode first)，click folder you just uncompressed, finish!
 
 ## Changelog
 
