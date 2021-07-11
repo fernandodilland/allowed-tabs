@@ -7,26 +7,21 @@
   },
 
   "text_developer": {
-        "message": "Extension réalisée par :",
-        "description": "Texte d'introduction"
-   },
-   "link001": {
-        "message": "Fernando Mireles",
-        "description": "Nom du lien pour la page"
-   },
-   "prompt001": {
-        "message": "GitHub",
-        "description": "Texte affiché lorsque vous passez la souris sur le lien"
-   },
+        "message": "Extension réalisée par :"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
 
-   "string_1": {
-    "message": "Nombre total d'onglets autorisés",
-    "description": "Premier texte"
+  "string_1": {
+    "message": "Nombre total d'onglets autorisés"
   },
 
   "string_2": {
-    "message": "Maximum dans la même fenêtre",
-    "description": "Deuxième texte"
+    "message": "Maximum dans la même fenêtre"
   },
 
   "string_3": {

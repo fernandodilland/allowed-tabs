@@ -7,26 +7,21 @@
   },
 
   "text_developer": {
-        "message": "Extension made by:",
-        "description": "Introductory text"
-   },
-   "link001": {
-        "message": "Fernando Mireles",
-        "description": "Link name for the page"
-   },
-   "prompt001": {
-        "message": "GitHub",
-        "description": "Text displayed when you mouse over the link"
-   },
+        "message": "Extension made by:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
 
-   "string_1": {
-    "message": "Total number of tabs you allow",
-    "description": "First text"
+  "string_1": {
+    "message": "Total number of tabs you allow"
   },
 
   "string_2": {
-    "message": "Maximum in the same window",
-    "description": "Second text"
+    "message": "Maximum in the same window"
   },
 
   "string_3": {

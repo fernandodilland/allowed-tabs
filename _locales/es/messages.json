@@ -7,26 +7,21 @@
   },
 
   "text_developer": {
-        "message": "Extensión realizada por:",
-        "description": "Texto introductorio"
-   },
-   "link001": {
-        "message": "Fernando Mireles",
-        "description": "Nombre de link para la página"
-   },
-   "prompt001": {
-        "message": "GitHub",
-        "description": "Texto que se muestra al pasar el mouse por el link"
-   },
+        "message": "Extensión realizada por:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
 
-   "string_1": {
-    "message": "Total de pestañas que permitirás",
-    "description": "Primer texto"
+  "string_1": {
+    "message": "Total de pestañas que permitirás"
   },
 
   "string_2": {
-    "message": "Máximo en la misma ventana",
-    "description": "Segundo texto"
+    "message": "Máximo en la misma ventana"
   },
 
   "string_3": {
