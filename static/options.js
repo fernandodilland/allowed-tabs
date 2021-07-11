@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		onKeyupInputs[i].addEventListener('keyup', saveOptions);
 	}
 
-
 	if (!localStorage.getItem('readMessage') && (new Date() < new Date('09-20-2020'))) {
 		document.querySelector('.message').classList.remove('hidden')
 		setTimeout(() => {
