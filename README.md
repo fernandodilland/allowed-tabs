@@ -12,6 +12,9 @@
 
 3. Choose `Load unpacked` (Open Develop Mode first)，click folder you just uncompressed, finish!
 
+**Google Chrome**:
+[Install it directly from the Chrome Web Store](https://chrome.google.com/webstore/detail/allowed-tabs/deglahadfhbjhkcphfhmanmjdmokhcaa).
+
 ## Changelog
 
 `2021-07`
