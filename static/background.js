@@ -15,7 +15,8 @@ const totalRemaining = options =>
 
 const updateBadge = options => {
 	if (!options.displayBadge) {
-		browser.browserAction.setBadgeText({ text: "" })
+		browser.browserAction.setBadgeText({
+		text: "" })
 		return;
 	}
 
@@ -23,6 +24,9 @@ const updateBadge = options => {
 	.then(remaining => {
 		browser.browserAction.setBadgeText({
 			text: Math.min(...remaining).toString()
+		});
+		chrome.browserAction.setBadgeBackgroundColor({
+			color: "#7e7e7e"
 		})
 	})
 }
