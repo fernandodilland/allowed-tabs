@@ -21,6 +21,7 @@
 
 Features:
 - Creation of the extension.
+- Translation and beautification of the popup.
 
 ## License
 
