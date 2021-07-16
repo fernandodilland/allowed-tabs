@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "允许的标签"
+  },
+  "extensionDesc": {
+    "message": "设置浏览器中允许的最大打开标签数。"
+  },
+
+  "text_developer": {
+        "message": "扩建工程由。"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "你允许的标签"
+  },
+
+  "string_2": {
+    "message": "每个窗口的标签"
+  },
+
+  "string_3": {
+    "message": "显示剩余"
+  },
+
+  "string_6": {
+    "message": "显示警报"
+  },
+
+  "string_7": {
+    "message": "你已经达到了标签的极限。"
+  },
+
+  "string_8": {
+    "message": "将被自动保存"
+  },
+
+  "string_9": {
+    "message": "成功保存"
+  },
+
+  "string_10": {
+    "message": "开发商"
+  }
+}
