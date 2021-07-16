@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Engedélyezett lapok"
+  },
+  "extensionDesc": {
+    "message": "A böngészőben megengedett maximálisan megnyitott lapok számának beállítása."
+  },
+
+  "text_developer": {
+        "message": "A bővítést készítette:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Engedélyezett lapok"
+  },
+
+  "string_2": {
+    "message": "Lapok ablakonként"
+  },
+
+  "string_3": {
+    "message": "Megmutatni a fennmaradó"
+  },
+
+  "string_6": {
+    "message": "Figyelmeztetés megjelenítése"
+  },
+
+  "string_7": {
+    "message": "Elérte a lapok számának határát."
+  },
+
+  "string_8": {
+    "message": "Automatikusan elmentésre kerül"
+  },
+
+  "string_9": {
+    "message": "Sikeresen mentve"
+  },
+
+  "string_10": {
+    "message": "Fejlesztő"
+  }
+}
