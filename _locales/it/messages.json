@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Schede consentite"
+  },
+  "extensionDesc": {
+    "message": "Imposta il numero massimo di schede aperte consentito nel browser."
+  },
+
+  "text_developer": {
+        "message": "Estensione fatta da:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Schede consentite"
+  },
+
+  "string_2": {
+    "message": "Schede per finestra"
+  },
+
+  "string_3": {
+    "message": "Mostra il resto"
+  },
+
+  "string_6": {
+    "message": "Mostra l'avviso"
+  },
+
+  "string_7": {
+    "message": "Avete raggiunto il limite delle schede."
+  },
+
+  "string_8": {
+    "message": "Sarà salvato automaticamente"
+  },
+
+  "string_9": {
+    "message": "Salvato con successo"
+  },
+
+  "string_10": {
+    "message": "Sviluppatore"
+  }
+}
