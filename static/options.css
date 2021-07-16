@@ -8,7 +8,7 @@ html {
 }
 
 body {
-	font-family: sans-serif;
+	font-family: lato;
 	font-size: .8em;
 	color: #ffffff;
 	min-width: 16em;
@@ -16,9 +16,89 @@ body {
 	background-color: #202020;
 }
 
-input {
-	font: inherit;
+/* Custom switch */
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 25px;
 }
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .3s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 19px;
+	width: 19px;
+	left: 4px;
+	bottom: 2.8px;
+	background-color: #202020;
+	-webkit-transition: .2s;
+	transition: .2s;
+}
+
+input:checked + .slider {
+	background-color: #ffd200;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #ffd200;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(23px);
+	-ms-transform: translateX(23px);
+	transform: translateX(23px);
+}
+
+  /* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.text_custom { 
+	top: 100px;
+}
+
+  /* Align center verically */
+
+.parent{
+    display: table;
+}
+.specs{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 0px;
+}
+
+.specs2{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
 
 [type="text"],
 [type="number"] {
