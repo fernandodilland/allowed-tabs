@@ -16,6 +16,17 @@ body {
 	background-color: #202020;
 }
 
+/* Custom header */
+
+.header {
+	background-color: #FFDF01;
+	color: black;
+	width: 200px;
+	height: 5px;
+	display: table-cell;
+    vertical-align: middle;
+}
+
 
 /* Custom switch */
 
@@ -39,7 +50,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: white;
+	background-color: rgb(126, 126, 126);
 	-webkit-transition: .4s;
 	transition: .3s;
 }
@@ -57,11 +68,11 @@ body {
 }
 
 input:checked + .slider {
-	background-color: #ffd200;
+	background-color: #FFDF01;
 }
 
 input:focus + .slider {
-	box-shadow: 0 0 1px #ffd200;
+	box-shadow: 0 0 1px #FFDF01;
 }
 
 input:checked + .slider:before {
@@ -169,7 +180,7 @@ h1 {
 }
 
 #status.notice {
-	color: #ffd200;
+	color: #FFDF01;
 }
 
 #status.invisible {
