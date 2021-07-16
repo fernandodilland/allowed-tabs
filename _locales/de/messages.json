@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Erlaubte Registerkarten"
+  },
+  "extensionDesc": {
+    "message": "Legen Sie die maximale Anzahl der im Browser zulässigen offenen Registerkarten fest."
+  },
+
+  "text_developer": {
+        "message": "Erweiterung erfolgt durch:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Tabs, die Sie erlauben"
+  },
+
+  "string_2": {
+    "message": "Registerkarten pro Fenster"
+  },
+
+  "string_3": {
+    "message": "Verbleibende anzeigen"
+  },
+
+  "string_6": {
+    "message": "Alarm anzeigent"
+  },
+
+  "string_7": {
+    "message": "Sie haben die Grenze der Registerkarten erreicht."
+  },
+
+  "string_8": {
+    "message": "Wird automatisch gespeichert"
+  },
+
+  "string_9": {
+    "message": "Successfully saved"
+  },
+
+  "string_10": {
+    "message": "Developer"
+  }
+}
