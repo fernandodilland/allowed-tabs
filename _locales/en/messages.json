@@ -17,11 +17,11 @@
   },
 
   "string_1": {
-    "message": "Total number of tabs you allow"
+    "message": "Tabs you allow"
   },
 
   "string_2": {
-    "message": "Maximum in the same window"
+    "message": "Tabs per window"
   },
 
   "string_3": {

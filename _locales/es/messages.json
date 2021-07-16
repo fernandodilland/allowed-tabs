@@ -17,11 +17,11 @@
   },
 
   "string_1": {
-    "message": "Total de pestañas que permitirás"
+    "message": "Pestañas que permitirás"
   },
 
   "string_2": {
-    "message": "Máximo en la misma ventana"
+    "message": "Pestañas por ventana"
   },
 
   "string_3": {

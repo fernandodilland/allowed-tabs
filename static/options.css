@@ -16,6 +16,7 @@ body {
 	background-color: #202020;
 }
 
+
 /* Custom switch */
 
 .switch {
@@ -38,7 +39,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #ccc;
+	background-color: white;
 	-webkit-transition: .4s;
 	transition: .3s;
 }
