@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Dozwolone zakładki"
+  },
+  "extensionDesc": {
+    "message": "Ustawienie maksymalnej liczby otwartych kart dozwolonych w przeglądarce."
+  },
+
+  "text_developer": {
+        "message": "Rozszerzenie wykonane przez:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Zakładki, na które zezwalasz"
+  },
+
+  "string_2": {
+    "message": "Zakładki w oknie"
+  },
+
+  "string_3": {
+    "message": "Pokaż pozostałe"
+  },
+
+  "string_6": {
+    "message": "Pokaż alarm"
+  },
+
+  "string_7": {
+    "message": "Osiągnąłeś limit zakładek."
+  },
+
+  "string_8": {
+    "message": "Zostanie zapisany automatycznie"
+  },
+
+  "string_9": {
+    "message": "Zostanie zapisany automatycznie"
+  },
+
+  "string_10": {
+    "message": "Deweloper"
+  }
+}
