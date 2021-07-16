@@ -137,7 +137,7 @@ const app = {
 	init: function() {
 		browser.storage.sync.set({
 			defaultOptions: {
-				maxTotal: 50,
+				maxTotal: 20,
 				maxWindow: 20,
 				exceedTabNewWindow: false,
 				displayAlert: true,

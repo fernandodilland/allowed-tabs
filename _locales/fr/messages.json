@@ -17,11 +17,11 @@
   },
 
   "string_1": {
-    "message": "Nombre total d'onglets autorisés"
+    "message": "D'onglets autorisés"
   },
 
   "string_2": {
-    "message": "Maximum dans la même fenêtre"
+    "message": "Onglets par fenêtre"
   },
 
   "string_3": {
