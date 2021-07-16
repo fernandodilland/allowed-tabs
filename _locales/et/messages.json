@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Lubatud vahekaardid"
+  },
+  "extensionDesc": {
+    "message": "Määrake maksimaalne lubatud avatud vahekaartide arv brauseris."
+  },
+
+  "text_developer": {
+        "message": "Laiendus tehtud:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Lubatud vahekaardid"
+  },
+
+  "string_2": {
+    "message": "Registrid akna kohta"
+  },
+
+  "string_3": {
+    "message": "Näita ülejäänud"
+  },
+
+  "string_6": {
+    "message": "Näita hoiatust"
+  },
+
+  "string_7": {
+    "message": "Te olete jõudnud vahekaartide piirini."
+  },
+
+  "string_8": {
+    "message": "Salvestatakse automaatselt"
+  },
+
+  "string_9": {
+    "message": "Edukalt salvestatud"
+  },
+
+  "string_10": {
+    "message": "Arendaja"
+  }
+}
