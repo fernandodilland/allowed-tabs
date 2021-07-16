@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Separadores permitidos"
+  },
+  "extensionDesc": {
+    "message": "Defina o número máximo de abas abertas permitido no navegador."
+  },
+
+  "text_developer": {
+        "message": "Extensão feita por:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Tabs que você permite"
+  },
+
+  "string_2": {
+    "message": "Abas por janela"
+  },
+
+  "string_3": {
+    "message": "Abas por janela"
+  },
+
+  "string_6": {
+    "message": "Mostrar alerta"
+  },
+
+  "string_7": {
+    "message": "Você atingiu o limite das abas."
+  },
+
+  "string_8": {
+    "message": "Será salvo automaticamente"
+  },
+
+  "string_9": {
+    "message": "Successfully saved"
+  },
+
+  "string_10": {
+    "message": "Desenvolvedor"
+  }
+}
