@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Toegestane tabbladen"
+  },
+  "extensionDesc": {
+    "message": "Stel het maximum aantal open tabbladen in dat is toegestaan in de browser."
+  },
+
+  "text_developer": {
+        "message": "Uitbreiding gemaakt door:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Tabs you allow"
+  },
+
+  "string_2": {
+    "message": "Tabs per window"
+  },
+
+  "string_3": {
+    "message": "Show remaining"
+  },
+
+  "string_6": {
+    "message": "Show alert"
+  },
+
+  "string_7": {
+    "message": "You have reached the limit of tabs."
+  },
+
+  "string_8": {
+    "message": "Will be saved automatically"
+  },
+
+  "string_9": {
+    "message": "Succesvol opgeslagen"
+  },
+
+  "string_10": {
+    "message": "Ontwikkelaar"
+  }
+}
