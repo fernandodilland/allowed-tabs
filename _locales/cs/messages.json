@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Povolené karty"
+  },
+  "extensionDesc": {
+    "message": "Nastavení maximálního povoleného počtu otevřených karet v prohlížeči."
+  },
+
+  "text_developer": {
+        "message": "Rozšíření provedl:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Povolené karty"
+  },
+
+  "string_2": {
+    "message": "Karty v okně"
+  },
+
+  "string_3": {
+    "message": "Zobrazit zbývající"
+  },
+
+  "string_6": {
+    "message": "Zobrazit upozornění"
+  },
+
+  "string_7": {
+    "message": "Dosáhli jste limitu karet."
+  },
+
+  "string_8": {
+    "message": "Uloží se automaticky"
+  },
+
+  "string_9": {
+    "message": "Úspěšně uloženo"
+  },
+
+  "string_10": {
+    "message": "Vývojář"
+  }
+}
