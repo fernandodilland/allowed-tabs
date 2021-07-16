@@ -15,6 +15,9 @@
 **Google Chrome**:
 [Install it directly from the Chrome Web Store](https://chrome.google.com/webstore/detail/allowed-tabs/deglahadfhbjhkcphfhmanmjdmokhcaa).
 
+**Microsoft Edge**:
+[Install it directly from the Microsoft Store](https://microsoftedge.microsoft.com/addons/detail/bedgmdmofacooedgglodglabbelmekha).
+
 ## Changelog
 
 `2021-07`
