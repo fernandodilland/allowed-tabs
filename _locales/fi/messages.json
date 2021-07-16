@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Allowed Tabs"
+  },
+  "extensionDesc": {
+    "message": "Set the maximum number of open tabs allowed in the browser."
+  },
+
+  "text_developer": {
+        "message": "Extension made by:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Tabs you allow"
+  },
+
+  "string_2": {
+    "message": "Tabs per window"
+  },
+
+  "string_3": {
+    "message": "Show remaining"
+  },
+
+  "string_6": {
+    "message": "Show alert"
+  },
+
+  "string_7": {
+    "message": "You have reached the limit of tabs."
+  },
+
+  "string_8": {
+    "message": "Will be saved automatically"
+  },
+
+  "string_9": {
+    "message": "Tallennettu onnistuneesti"
+  },
+
+  "string_10": {
+    "message": "Kehittäjä"
+  }
+}
