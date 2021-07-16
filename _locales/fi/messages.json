@@ -1,13 +1,13 @@
 {
   "extensionName": {
-    "message": "Allowed Tabs"
+    "message": "Sallitut välilehdet"
   },
   "extensionDesc": {
-    "message": "Set the maximum number of open tabs allowed in the browser."
+    "message": "Asettaa selaimessa sallittujen avointen välilehtien enimmäismäärän."
   },
 
   "text_developer": {
-        "message": "Extension made by:"
+        "message": "Laajennus tehty:"
   },
   "link001": {
         "message": "Fernando Mireles"
@@ -17,27 +17,27 @@
   },
 
   "string_1": {
-    "message": "Tabs you allow"
+    "message": "Sallitut välilehdet"
   },
 
   "string_2": {
-    "message": "Tabs per window"
+    "message": "Välilehdet per ikkuna"
   },
 
   "string_3": {
-    "message": "Show remaining"
+    "message": "Näytä loput"
   },
 
   "string_6": {
-    "message": "Show alert"
+    "message": "Näytä hälytys"
   },
 
   "string_7": {
-    "message": "You have reached the limit of tabs."
+    "message": "Olet saavuttanut välilehtien määrän."
   },
 
   "string_8": {
-    "message": "Will be saved automatically"
+    "message": "Tallennetaan automaattisesti"
   },
 
   "string_9": {
