@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "許可されたタブ"
+  },
+  "extensionDesc": {
+    "message": "ブラウザで開くことのできるタブの最大数を設定します。"
+  },
+
+  "text_developer": {
+        "message": "エクステンションは、以下の通りです。"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "許可するタブ"
+  },
+
+  "string_2": {
+    "message": "ウィンドウあたりのタブ数"
+  },
+
+  "string_3": {
+    "message": "残りを表示"
+  },
+
+  "string_6": {
+    "message": "警告表示"
+  },
+
+  "string_7": {
+    "message": "タブの限界に達しています。"
+  },
+
+  "string_8": {
+    "message": "自動的に保存される"
+  },
+
+  "string_9": {
+    "message": "保存に成功しました。"
+  },
+
+  "string_10": {
+    "message": "開発者"
+  }
+}
