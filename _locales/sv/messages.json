@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Tillåtna flikar"
+  },
+  "extensionDesc": {
+    "message": "Ange det högsta tillåtna antalet öppna flikar i webbläsaren."
+  },
+
+  "text_developer": {
+        "message": "Förlängning gjord av:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Flikar som du tillåter"
+  },
+
+  "string_2": {
+    "message": "Flikar per fönster"
+  },
+
+  "string_3": {
+    "message": "Visa återstående"
+  },
+
+  "string_6": {
+    "message": "Visa varning"
+  },
+
+  "string_7": {
+    "message": "Du har nått gränsen för antalet flikar."
+  },
+
+  "string_8": {
+    "message": "Kommer att sparas automatiskt"
+  },
+
+  "string_9": {
+    "message": "Framgångsrikt sparat"
+  },
+
+  "string_10": {
+    "message": "Utvecklare"
+  }
+}
