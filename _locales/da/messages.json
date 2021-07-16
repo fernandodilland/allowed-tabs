@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Tilladte faner"
+  },
+  "extensionDesc": {
+    "message": "Indstil det maksimale antal åbne faner, der er tilladt i browseren."
+  },
+
+  "text_developer": {
+        "message": "Udvidelse foretaget af:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Faner, du tillader"
+  },
+
+  "string_2": {
+    "message": "Faner pr. vindue"
+  },
+
+  "string_3": {
+    "message": "Vis resterende"
+  },
+
+  "string_6": {
+    "message": "Vis alarm"
+  },
+
+  "string_7": {
+    "message": "Du har nået grænsen for faner."
+  },
+
+  "string_8": {
+    "message": "Will be saved automatically"
+  },
+
+  "string_9": {
+    "message": "Succesfuldt gemt"
+  },
+
+  "string_10": {
+    "message": "Udvikler"
+  }
+}
