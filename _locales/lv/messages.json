@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Atļautās cilnes"
+  },
+  "extensionDesc": {
+    "message": "Iestatiet maksimālo atļauto atvērto cilņu skaitu pārlūkprogrammā."
+  },
+
+  "text_developer": {
+        "message": "Paplašinājumu veicis:"
+  },
+  "link001": {
+        "message": "Fernando Mireles"
+  },
+  "prompt001": {
+        "message": "GitHub"
+  },
+
+  "string_1": {
+    "message": "Atļautās cilnes"
+  },
+
+  "string_2": {
+    "message": "Cilnes katrā logā"
+  },
+
+  "string_3": {
+    "message": "Rādīt atlikušos"
+  },
+
+  "string_6": {
+    "message": "Rādīt brīdinājumu"
+  },
+
+  "string_7": {
+    "message": "Jūs esat sasniedzis cilņu limitu."
+  },
+
+  "string_8": {
+    "message": "Will be saved automatically"
+  },
+
+  "string_9": {
+    "message": "Veiksmīgi saglabāts"
+  },
+
+  "string_10": {
+    "message": "Izstrādātājs"
+  }
+}
