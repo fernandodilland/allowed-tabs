@@ -52,7 +52,7 @@ body {
 	bottom: 0;
 	background-color: rgb(126, 126, 126);
 	-webkit-transition: .4s;
-	transition: .3s;
+	transition: .2s;
 }
 
 .slider:before {
