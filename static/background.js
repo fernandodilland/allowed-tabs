@@ -1,8 +1,9 @@
 const browser = chrome || browser
 
 const tabQuery = (options, params = {}) => new Promise(res => {
-	if (!options.countPinnedTabs) params.pinned = false
-	browser.tabs.query(params, tabs => res(tabs))
+    if (!options.countPinnedTabs) params.pinned = false
+    if (!options.countGroupedTabs) params.groupId = browser.tabGroups.TAB_GROUP_ID_NONE
+    browser.tabs.query(params, tabs => res(tabs))
 })
 
 const windowRemaining = options =>
@@ -15,17 +16,17 @@ const totalRemaining = options =>
 
 const updateBadge = options => {
 	if (!options.displayBadge) {
-		browser.browserAction.setBadgeText({
+		browser.action.setBadgeText({
 		text: "" })
 		return;
 	}
 
 	Promise.all([windowRemaining(options), totalRemaining(options)])
 	.then(remaining => {
-		browser.browserAction.setBadgeText({
+		browser.action.setBadgeText({
 			text: Math.min(...remaining).toString()
 		});
-		chrome.browserAction.setBadgeBackgroundColor({
+		chrome.action.setBadgeBackgroundColor({
 			color: "#7e7e7e"
 		})
 	})
@@ -146,6 +147,7 @@ const app = {
 				exceedTabNewWindow: false,
 				displayAlert: true,
 				countPinnedTabs: false,
+				countGroupedTabs: false, // added
 				displayBadge: true,
 				alertMessage: chrome.i18n.getMessage("string_7")
 			}
