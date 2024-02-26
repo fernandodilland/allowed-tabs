@@ -53,36 +53,57 @@ const getOptions = () => new Promise((res, rej) => {
 		})
 	})
 })
-
-const displayAlert = (options, place) => new Promise((res, rej) => {
-	if (!options.displayAlert) { return res(false) }
-
-	const replacer = (match, p1, offset, string) => {
-		switch (p1) {
-			case "place":
-			case "which":
-				return place === "window" ?
-					"one window" : "total";
-				break;
-
-			case "maxPlace":
-			case "maxWhich":
-				return options[
-					"max" + capitalizeFirstLetter(place)
-				];
-				break;
-
-			default:
-				return options[p1] || "?";
-		}
-	};
-
-	const renderedMessage = options.alertMessage.replace(
-		/{\s*(\S+)\s*}/g,
-		replacer
-	)
-	alert(renderedMessage);
-})
+const displayAlert = (options, place) => {
+    return new Promise((res, rej) => {
+		if (!options.displayAlert) { return res(false) }
+		const replacer = (match, p1, offset, string) => {
+			switch (p1) {
+				case "place":
+				case "which":
+					return place === "window" ?
+						"one window" : "total";
+					break;
+	
+				case "maxPlace":
+				case "maxWhich":
+					return options[
+						"max" + capitalizeFirstLetter(place)
+					];
+					break;
+	
+				default:
+					return options[p1] || "?";
+			}
+		};
+	
+		const renderedMessage = options.alertMessage.replace(
+			/{\s*(\S+)\s*}/g,
+			replacer
+		)
+		console.log( renderedMessage)
+		// fix: alert(confirm) dialog not working 
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.scripting.executeScript({
+				target: {tabId: tabs[0].id},
+				function: function(message) {
+					return new Promise((resolve, reject) => {
+						const result = window.confirm(message);
+						resolve(result);
+					});
+				},
+				args: [renderedMessage]  // pass renderedMessage as args 
+			}, function(results) {
+				if (chrome.runtime.lastError) {
+					console.error(chrome.runtime.lastError);
+				} else if (results && results.length > 0) {
+					res(results[0].result);
+				} else {
+					rej('No result from confirm dialog');
+				}
+			});
+		});
+    });
+}
 
 let tabCount = -1
 let previousTabCount = -1
@@ -123,18 +144,22 @@ const handleTabCreated = tab => options => {
 			return;
 		}
 		console.log("amountOfTabsCreated", amountOfTabsCreated)
-		displayAlert(options, place)
-		if (amountOfTabsCreated === 1) {
-			handleExceedTabs(tab, options, place);
-			app.update()
-		} else if (amountOfTabsCreated > 1) {
-			passes = amountOfTabsCreated - 1
-		} else if (amountOfTabsCreated === -1) {
-			handleExceedTabs(tab, options, place);
-			app.update()
-		} else {
-			throw new Error("weird: multiple tabs closed after tab created")
-		}
+
+		// fix: wait displayAlert Promise
+		return displayAlert(options, place)  
+		.then(() => {
+			if (amountOfTabsCreated === 1) {
+				handleExceedTabs(tab, options, place);
+				app.update()
+			} else if (amountOfTabsCreated > 1) {
+				passes = amountOfTabsCreated - 1
+			} else if (amountOfTabsCreated === -1) {
+				handleExceedTabs(tab, options, place);
+				app.update()
+			} else {
+				throw new Error("weird: multiple tabs closed after tab created")
+			}
+		});
 	}))
 }
 

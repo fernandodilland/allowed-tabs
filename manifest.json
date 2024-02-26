@@ -4,7 +4,7 @@
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDesc__",
   "default_locale": "en",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Fernando Mireles & Hydrowood",
   "homepage_url": "https://github.com/fernandomireles/allowed-tabs",
 
@@ -24,7 +24,12 @@
   "permissions": [
     "storage",
     "tabs",
-    "tabGroups"
+    "tabGroups",
+    "activeTab", 
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "web_accessible_resources": [
     {
