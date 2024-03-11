@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Kehittäjä"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Lasketaanko kiinnitetyt välilehdet mukaan"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Lasketaanko ryhmitellyt välilehdet mukaan"
   }
 }

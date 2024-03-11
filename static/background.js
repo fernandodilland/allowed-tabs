@@ -1,8 +1,8 @@
 const browser = chrome || browser
 
 const tabQuery = (options, params = {}) => new Promise(res => {
-    if (!options.countPinnedTabs) params.pinned = false
-    if (!options.countGroupedTabs) params.groupId = browser.tabGroups.TAB_GROUP_ID_NONE
+	if (!options.countPinnedTabs && params.pinned === undefined) params.pinned = false
+    if (!options.countGroupedTabs && params.groupId === undefined) params.groupId = browser.tabGroups.TAB_GROUP_ID_NONE
     browser.tabs.query(params, tabs => res(tabs))
 })
 
@@ -26,7 +26,7 @@ const updateBadge = options => {
 		browser.action.setBadgeText({
 			text: Math.min(...remaining).toString()
 		});
-		chrome.action.setBadgeBackgroundColor({
+		browser.action.setBadgeBackgroundColor({
 			color: "#7e7e7e"
 		})
 	})
@@ -53,6 +53,8 @@ const getOptions = () => new Promise((res, rej) => {
 		})
 	})
 })
+
+let alertTabId = null;
 const displayAlert = (options, place) => {
     return new Promise((res, rej) => {
 		if (!options.displayAlert) { return res(false) }
@@ -81,9 +83,10 @@ const displayAlert = (options, place) => {
 			replacer
 		)
 		console.log( renderedMessage)
-		// fix: alert(confirm) dialog not working 
-		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			chrome.scripting.executeScript({
+		// // // fix: alert(confirm) dialog not working 
+		browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			alertTabId = tabs[0].id;  
+			browser.scripting.executeScript({
 				target: {tabId: tabs[0].id},
 				function: function(message) {
 					return new Promise((resolve, reject) => {
@@ -93,17 +96,51 @@ const displayAlert = (options, place) => {
 				},
 				args: [renderedMessage]  // pass renderedMessage as args 
 			}, function(results) {
-				if (chrome.runtime.lastError) {
-					console.error(chrome.runtime.lastError);
-				} else if (results && results.length > 0) {
+				if (browser.runtime.lastError) {
+					console.error(browser.runtime.lastError.message);
+					res(false);
+				} else if (results && results.length > 0 && results[0].result !== null) {
 					res(results[0].result);
 				} else {
-					rej('No result from confirm dialog');
+					browser.scripting.executeScript({
+						target: {tabId: tabs[0].id},
+						function: function(message) {
+							return new Promise((resolve, reject) => {
+								const result = window.confirm(message);
+								resolve(result);
+							});
+						},
+						args: [renderedMessage]  // pass renderedMessage as args 
+					}, function(results) {
+						if (browser.runtime.lastError) {
+							console.error(browser.runtime.lastError.message);
+							res(false);
+						} else if (results && results.length > 0 && results[0].result !== null) {
+							res(results[0].result);
+						} else {
+							rej('No result from confirm dialog');
+						}
+					});
 				}
 			});
 		});
+
     });
 }
+
+
+
+
+const getPinnedTabsCount = () => new Promise(res => {
+    browser.tabs.query({pinned: true}, tabs => res(tabs.length));
+});
+
+const getGroupedTabsCount = () => new Promise(res => {
+    browser.tabs.query({}, tabs => {
+        const groupedTabs = tabs.filter(tab => tab.groupId !== browser.tabGroups.TAB_GROUP_ID_NONE);
+        res(groupedTabs.length);
+    });
+});
 
 let tabCount = -1
 let previousTabCount = -1
@@ -128,7 +165,12 @@ const handleExceedTabs = (tab, options, place) => {
 	if (options.exceedTabNewWindow && place === "window") {
 		browser.windows.create({ tabId: tab.id, focused: true});
 	} else {
-		browser.tabs.remove(tab.id);
+		browser.tabs.remove(tab.id, function() {
+			alertTabId = null;
+			if (browser.runtime.lastError) {
+				console.error(browser.runtime.lastError.message);
+			} else {}
+		});
 	}
 }
 
@@ -167,20 +209,27 @@ const app = {
 	init: function() {
 		browser.storage.sync.set({
 			defaultOptions: {
-				maxTotal: 20,
-				maxWindow: 20,
+				maxTotal: 56,
+				maxWindow: 56,
 				exceedTabNewWindow: false,
 				displayAlert: true,
-				countPinnedTabs: false,
+				countPinnedTabs: false, // added
 				countGroupedTabs: false, // added
 				displayBadge: true,
-				alertMessage: chrome.i18n.getMessage("string_7")
+				alertMessage: browser.i18n.getMessage("string_7")
 			}
 		});
 
 		browser.tabs.onCreated.addListener(tab =>
-			getOptions().then(handleTabCreated(tab))
+			getOptions().then(handleTabCreated(tab))        
 		)
+
+		browser.tabs.onActivated.addListener(activeInfo => {
+			if (alertTabId !== null && alertTabId !== activeInfo.tabId) {
+				browser.windows.update(activeInfo.windowId, {focused: true})//test
+				browser.tabs.update(alertTabId, {active: true})
+			}
+		});
 
 		console.log("init", this)
 		browser.windows.onFocusChanged.addListener(app.update)
@@ -190,7 +239,19 @@ const app = {
 	},
 	update: () => {
 		updateTabCount();
-		getOptions().then(updateBadge)
+		getOptions().then(options => {
+			Promise.all([
+				getPinnedTabsCount().then(count => {
+					options.pinnedTabsCount = count;
+				}),
+				getGroupedTabsCount().then(count => {
+					options.groupedTabsCount = count;
+				})
+			]).then(() => {
+				browser.storage.sync.set({defaultOptions: options});
+				updateBadge(options);
+			});
+		});
 	}
 };
 

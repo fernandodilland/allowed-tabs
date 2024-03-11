@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Développeur"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Faut-il compter les onglets épinglés "
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Faut-il compter les onglets groupés"
   }
 }
