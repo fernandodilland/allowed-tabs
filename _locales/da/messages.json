@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Udvikler"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Skal fastgjorte faner tælles med"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Skal grupperede faner tælles med"
   }
 }

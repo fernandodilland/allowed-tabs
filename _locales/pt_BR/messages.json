@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Desenvolvedor"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Calcular as guias fixas"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Calcular as guias agrupadas"
   }
 }

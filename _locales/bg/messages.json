@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Разработчик"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Да се броят ли фиксираните табове"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Да се броят ли групираните табове"
   }
 }

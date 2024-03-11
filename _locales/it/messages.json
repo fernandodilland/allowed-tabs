@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Sviluppatore"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Calcolare le schede fisse"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Calcolare le schede raggruppate"
   }
 }

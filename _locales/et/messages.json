@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Arendaja"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Kas arvesse võetakse kinnitatud kaardid"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Kas arvesse võetakse rühmitatud kaardid"
   }
 }
