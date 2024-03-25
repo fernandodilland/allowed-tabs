@@ -1,30 +1,40 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDesc__",
   "default_locale": "en",
-  "version": "0.1.1",
-  "author": "Fernando Mireles",
-	"homepage_url": "https://github.com/fernandomireles/allowed-tabs",
+  "version": "0.2.3",
+  "author": "Fernando Mireles & Hydrowood",
+  "homepage_url": "https://github.com/fernandomireles/allowed-tabs",
 
   "background": {
-	"scripts": ["static/background.js"]
+    "service_worker": "static/background.js"
   },
   "icons": {
     "16": "static/icon-16.png",
     "48": "static/icon-48.png",
     "128": "static/icon-128.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "static/icon-small.png",
     "default_popup": "static/options.html"
   },
   "options_page": "static/options.html",
   "permissions": [
-    "storage"
+    "storage",
+    "tabs",
+    "tabGroups",
+    "activeTab", 
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "web_accessible_resources": [
-    "static/icon-small.png", "static/icon.png"
+    {
+      "resources": ["static/icon-small.png", "static/icon.png"],
+      "matches": ["<all_urls>"]
+    }
   ]
 }

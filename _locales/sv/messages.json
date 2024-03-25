@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Utvecklare"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Beräkna fästa flikar"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Beräkna grupperade flikar"
   }
 }

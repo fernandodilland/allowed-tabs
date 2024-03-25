@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "開発者"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "固定されたタブを計算しますか"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "グループ化されたタブを計算しますか"
   }
 }

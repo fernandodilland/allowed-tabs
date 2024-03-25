@@ -1,9 +1,11 @@
 const browser = chrome || browser
-
 const tabQuery = (options, params = {}) => new Promise(res => {
-	if (!options.countPinnedTabs) params.pinned = false
-	browser.tabs.query(params, tabs => res(tabs))
+	if (!options.countPinnedTabs && params.pinned === undefined) params.pinned = false
+    if (!options.countGroupedTabs && params.groupId === undefined) params.groupId = browser.tabGroups.TAB_GROUP_ID_NONE
+    browser.tabs.query(params, tabs => res(tabs))
 })
+
+// tabQuery({countPinnedTabs: false, countGroupedTabs: false})
 
 const windowRemaining = options =>
 	tabQuery(options, { currentWindow: true })
@@ -15,13 +17,13 @@ const totalRemaining = options =>
 
 const updateBadge = options => {
 	if (!options.displayBadge) {
-		browser.browserAction.setBadgeText({ text: "" })
+		browser.action.setBadgeText({ text: "" })
 		return;
 	}
 
 	Promise.all([windowRemaining(options), totalRemaining(options)])
 	.then(remaining => {
-		browser.browserAction.setBadgeText({
+		browser.action.setBadgeText({
 			text: Math.min(...remaining).toString()
 		})
 	})
@@ -51,11 +53,10 @@ const saveOptions = () => {
 
 		const status = document.getElementById('status');
 		status.className = 'notice';
-		status.textContent = chrome.i18n.getMessage("string_9");
+		status.textContent = browser.i18n.getMessage("string_9");
 		setTimeout(() => {
 			status.className += ' invisible';
 		}, 100);
-
 
 		updateBadge(options)
 	});
@@ -75,6 +76,9 @@ const restoreOptions = () => {
 
 				input[valueType] = options[input.id];
 			};
+		
+		document.getElementById('pinnedTabsCount').innerText = options.pinnedTabsCount;
+		document.getElementById('groupedTabsCount').innerText = options.groupedTabsCount;
 		});
 	});
 }
