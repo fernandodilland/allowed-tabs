@@ -48,10 +48,10 @@
     "message": "Desarrollador"
   },
   "string_for_countPinnedTabs": {
-    "message": "¿Contar pestañas ancladas"
+    "message": "Contar pestañas ancladas"
   },
 
   "string_for_countGroupedTabs": {
-    "message": "¿Contar pestañas agrupadas"
+    "message": "Contar pestañas agrupadas"
   }
 }
