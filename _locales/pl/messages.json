@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Deweloper"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Czy obliczać zakotwiczone karty"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Czy obliczać karty zgrupowane"
   }
 }

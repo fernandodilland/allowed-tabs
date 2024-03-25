@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Fejlesztő"
+  },
+  "string_for_countPinnedTabs": {
+    "message": " Számítsa a rögzített lapokat"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Számítsa a csoportosított lapokat"
   }
 }

@@ -1,3 +1,5 @@
+let browsers = window.chrome || window.browser;
+
 function localizeHtmlPage()
 {
     //Localize by replacing __MSG_***__ meta tags
@@ -9,7 +11,7 @@ function localizeHtmlPage()
         var valStrH = obj.innerHTML.toString();
         var valNewH = valStrH.replace(/__MSG_(\w+)__/g, function(match, v1)
         {
-            return v1 ? chrome.i18n.getMessage(v1) : "";
+            return v1 ? browsers.i18n.getMessage(v1) : "";
         });
 
         if(valNewH != valStrH)

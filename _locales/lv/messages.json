@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Izstrādātājs"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Vai aprēķināt fiksētās cilnes"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Vai aprēķināt grupētās cilnes"
   }
 }

@@ -46,5 +46,12 @@
 
   "string_10": {
     "message": "Προγραμματιστής"
+  },
+  "string_for_countPinnedTabs": {
+    "message": "Να συμπεριληφθούν οι επισημασμένες καρτέλες"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "Να συμπεριληφθούν οι ομαδοποιημένες καρτέλες"
   }
 }

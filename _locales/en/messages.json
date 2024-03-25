@@ -46,5 +46,13 @@
 
   "string_10": {
     "message": "Developer"
+  },
+
+  "string_for_countPinnedTabs": {
+    "message": "count pinned tabs"
+  },
+
+  "string_for_countGroupedTabs": {
+    "message": "count grouped tabs"
   }
 }
