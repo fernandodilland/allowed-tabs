@@ -26,4 +26,4 @@ Features:
 
 ## License
 
-[allowed-tabs](https://github.com/fernandomireles/allowed-tabs/) are released under [MIT license](https://github.com/fernandomireles/allowed-tabs/blob/main/LICENSE) . Copyright (c) [Fernando Mireles](https://github.com/fernandomireles).
+[allowed-tabs](https://github.com/fernandodilland/allowed-tabs/) are released under [MIT license](https://github.com/fernandodilland/allowed-tabs/blob/main/LICENSE) . Copyright (c) [Fernando Dilland](https://github.com/fernandodilland).
