@@ -4,9 +4,9 @@
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDesc__",
   "default_locale": "en",
-  "version": "0.3.0",
-  "author": "Fernando Mireles & Hydrowood",
-  "homepage_url": "https://github.com/fernandomireles/allowed-tabs",
+  "version": "0.3.1",
+  "author": "Fernando Dilland & Hydrowood",
+  "homepage_url": "https://github.com/fernandodilland/allowed-tabs",
 
   "background": {
     "service_worker": "static/background.js"
