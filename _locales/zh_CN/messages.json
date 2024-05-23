@@ -54,5 +54,11 @@
 
   "string_for_countGroupedTabs": {
     "message": "是否计算已分组标签页"
+  },
+  "string_for_groupsLimit": {
+    "message": "标签组数的上限"
+  },
+  "string_for_countGroupsswitch": {
+    "message": "是否限制标签组"
   }
 }

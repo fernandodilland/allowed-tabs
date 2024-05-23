@@ -18,6 +18,16 @@
 
 ## Changelog
 
+`2024-05`
+- Forcing an upper limit on the number of tag groups
+
+`2024-02`
+- Add pinned & grouped support(only locale in en & zh-CN)
+- Update Manifest to V3.
+- change all "chrome." to "chrome.||browser." to fit Firefox(no test yet)
+- change "window.alert" to "window.confirm" (some URL like chrome:// and extension store, as well as switching active tabs won't show confirm window and close tab immediately)
+- some errors is uncaught or showing up, but don't affect the extension's function
+
 `2021-07`
 
 Features:

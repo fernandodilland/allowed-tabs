@@ -14,6 +14,14 @@ const totalRemaining = options =>
 	tabQuery(options)
 		.then(tabs => options.maxTotal - tabs.length)
 
+// const groupsRemaining = options =>
+// getGroupsCount(options)
+// 	.then(groups => options.maxGroups - groups.length)
+
+const groupsRemaining = options =>
+getGroupsCount()
+	.then(count => options.maxGroups - count)
+
 const updateBadge = options => {
 	if (!options.displayBadge) {
 		browser.action.setBadgeText({
@@ -22,14 +30,19 @@ const updateBadge = options => {
 	}
 
 	Promise.all([windowRemaining(options), totalRemaining(options)])
-	.then(remaining => {
-		browser.action.setBadgeText({
-			text: Math.min(...remaining).toString()
-		});
-		browser.action.setBadgeBackgroundColor({
-			color: "#7e7e7e"
-		})
-	})
+    .then(remaining => {
+        let text1 = Math.min(...remaining).toString();
+        return groupsRemaining(options)
+            .then(remainingGroups => {
+                let text2 = remainingGroups.toString();
+                browser.action.setBadgeText({
+                    text: text1 + '|' + text2
+                });
+                browser.action.setBadgeBackgroundColor({
+                    color: "#7e7e7e"
+                })
+            });
+    })
 }
 
 const detectTooManyTabsInWindow = options => new Promise(res => {
@@ -45,6 +58,18 @@ const detectTooManyTabsInTotal = options => new Promise(res => {
 		if (tabs.length > options.maxTotal) res("total");
 	});
 })
+
+
+function detectTooManyGroups(options) {
+    return getGroupsCount().then(count => {
+        if (count > options.maxGroups) {
+            return 'groups';
+        }
+        return new Promise(() => {});  
+    });
+}
+
+
 
 const getOptions = () => new Promise((res, rej) => {
 	browser.storage.sync.get("defaultOptions", (defaults) => {
@@ -129,8 +154,6 @@ const displayAlert = (options, place) => {
 }
 
 
-
-
 const getPinnedTabsCount = () => new Promise(res => {
     browser.tabs.query({pinned: true}, tabs => res(tabs.length));
 });
@@ -139,6 +162,12 @@ const getGroupedTabsCount = () => new Promise(res => {
     browser.tabs.query({}, tabs => {
         const groupedTabs = tabs.filter(tab => tab.groupId !== browser.tabGroups.TAB_GROUP_ID_NONE);
         res(groupedTabs.length);
+    });
+});
+
+const getGroupsCount = () => new Promise(res => {
+    browser.tabGroups.query({}, function(groups) {
+        res(groups.length); 
     });
 });
 
@@ -177,7 +206,8 @@ const handleExceedTabs = (tab, options, place) => {
 const handleTabCreated = tab => options => {
 	return Promise.race([
 		detectTooManyTabsInWindow(options),
-		detectTooManyTabsInTotal(options)
+		detectTooManyTabsInTotal(options),
+		detectTooManyGroups(options)  
 	])
 	.then((place) => updateTabCount().then(amountOfTabsCreated => {
 		if (passes > 0) {
@@ -209,12 +239,13 @@ const app = {
 	init: function() {
 		browser.storage.sync.set({
 			defaultOptions: {
-				maxTotal: 56,
-				maxWindow: 56,
+				maxTotal: 30,
+				maxWindow: 30,
 				exceedTabNewWindow: false,
 				displayAlert: true,
 				countPinnedTabs: false, // added
 				countGroupedTabs: false, // added
+				maxGroups: 24, // added
 				displayBadge: true,
 				alertMessage: browser.i18n.getMessage("string_7")
 			}
@@ -246,10 +277,16 @@ const app = {
 				}),
 				getGroupedTabsCount().then(count => {
 					options.groupedTabsCount = count;
+				}),
+				getGroupsCount().then(count => {
+					options.groupsCount = count;
 				})
 			]).then(() => {
-				browser.storage.sync.set({defaultOptions: options});
+				return browser.storage.sync.set({defaultOptions: options});
+			}).then(() => {
 				updateBadge(options);
+			}).catch(error => {
+				console.error('could be improved in future:', error);
 			});
 		});
 	}

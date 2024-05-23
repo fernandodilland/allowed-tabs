@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Számítsa a csoportosított lapokat"
+  },
+  "string_for_groupsLimit": {
+    "message": "A címkecsoportok maximális száma"
   }
 }

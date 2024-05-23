@@ -50,8 +50,10 @@
   "string_for_countPinnedTabs": {
     "message": "Vai aprēķināt fiksētās cilnes"
   },
-
   "string_for_countGroupedTabs": {
     "message": "Vai aprēķināt grupētās cilnes"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maksimālais tagu grupu skaits"
   }
 }

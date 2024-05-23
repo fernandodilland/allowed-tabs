@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Beräkna grupperade flikar"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maximalt antal tagggrupper"
   }
 }

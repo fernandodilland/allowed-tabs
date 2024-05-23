@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Рассчитать группированные вкладки"
+  },
+  "string_for_groupsLimit": {
+    "message": "Максимальное количество групп тегов"
   }
 }

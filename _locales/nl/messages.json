@@ -50,8 +50,10 @@
   "string_for_countPinnedTabs": {
     "message": "Berekent u de vastgezette tabbladen"
   },
-
   "string_for_countGroupedTabs": {
     "message": "Berekent u de gegroepeerde tabbladen"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maximum aantal taggroepen"
   }
 }

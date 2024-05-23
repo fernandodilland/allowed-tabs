@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Faut-il compter les onglets groupés"
+  },
+  "string_for_groupsLimit": {
+    "message": "Nombre maximum de groupes de balises"
   }
 }

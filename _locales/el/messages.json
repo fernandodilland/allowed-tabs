@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Να συμπεριληφθούν οι ομαδοποιημένες καρτέλες"
+  },
+  "string_for_groupsLimit": {
+    "message": "Μέγιστος αριθμός ομάδων ετικετών"
   }
 }

@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Czy obliczać karty zgrupowane"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maksymalna liczba grup tagów"
   }
 }
