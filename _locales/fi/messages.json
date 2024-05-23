@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Lasketaanko ryhmitellyt välilehdet mukaan"
+  },
+  "string_for_groupsLimit": {
+    "message": "Tagiryhmien enimmäismäärä"
   }
 }

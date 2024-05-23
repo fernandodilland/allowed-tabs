@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Да се броят ли групираните табове"
+  },
+  "string_for_groupsLimit": {
+    "message": "Максимален брой групи етикети"
   }
 }

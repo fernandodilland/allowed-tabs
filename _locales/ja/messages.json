@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "グループ化されたタブを計算しますか"
+  },
+  "string_for_groupsLimit": {
+    "message": "タググループの最大数"
   }
 }

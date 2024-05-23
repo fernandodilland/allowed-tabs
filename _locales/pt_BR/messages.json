@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Calcular as guias agrupadas"
+  },
+  "string_for_groupsLimit": {
+    "message": "Número máximo de grupos de tags"
   }
 }

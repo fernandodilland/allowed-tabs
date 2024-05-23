@@ -53,5 +53,8 @@
 
   "string_for_countGroupedTabs": {
     "message": "Calcolare le schede raggruppate"
+  },
+  "string_for_groupsLimit": {
+    "message": "Numero massimo di gruppi di tag"
   }
 }

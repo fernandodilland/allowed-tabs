@@ -7,6 +7,12 @@ const tabQuery = (options, params = {}) => new Promise(res => {
 
 // tabQuery({countPinnedTabs: false, countGroupedTabs: false})
 
+const getGroupsCount = () => new Promise(res => {
+    browser.tabGroups.query({}, function(groups) {
+        res(groups.length); 
+    });
+});
+
 const windowRemaining = options =>
 	tabQuery(options, { currentWindow: true })
 		.then(tabs => options.maxWindow - tabs.length)
@@ -15,6 +21,10 @@ const totalRemaining = options =>
 	tabQuery(options)
 		.then(tabs => options.maxTotal - tabs.length)
 
+const groupsRemaining = options =>
+	getGroupsCount()
+		.then(count => options.maxGroups - count)
+
 const updateBadge = options => {
 	if (!options.displayBadge) {
 		browser.action.setBadgeText({ text: "" })
@@ -22,11 +32,17 @@ const updateBadge = options => {
 	}
 
 	Promise.all([windowRemaining(options), totalRemaining(options)])
-	.then(remaining => {
+    .then(async remaining => {
+        let text1 = Math.min(...remaining).toString();
+        const remainingGroups = await groupsRemaining(options)
+		let text2 = remainingGroups.toString()
 		browser.action.setBadgeText({
-			text: Math.min(...remaining).toString()
+			text: text1 + '|' + text2
 		})
-	})
+		browser.action.setBadgeBackgroundColor({
+			color: "#7e7e7e"
+		})
+    })
 }
 
 let $inputs;
@@ -77,8 +93,10 @@ const restoreOptions = () => {
 				input[valueType] = options[input.id];
 			};
 		
-		document.getElementById('pinnedTabsCount').innerText = options.pinnedTabsCount;
-		document.getElementById('groupedTabsCount').innerText = options.groupedTabsCount;
+		 document.getElementById('pinnedTabsCount').innerText = options.pinnedTabsCount;
+		 document.getElementById('groupedTabsCount').innerText = options.groupedTabsCount;
+		 document.getElementById('groupsCount').innerText = options.groupsCount;
+
 		});
 	});
 }
