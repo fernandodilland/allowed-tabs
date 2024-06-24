@@ -36,9 +36,19 @@ const updateBadge = options => {
         let text1 = Math.min(...remaining).toString();
         const remainingGroups = await groupsRemaining(options)
 		let text2 = remainingGroups.toString()
-		browser.action.setBadgeText({
-			text: text1 + '|' + text2
-		})
+		// Check if countGroupsSwitch is enabled
+		if (options.countGroupsSwitch) {
+			const remainingGroups = await groupsRemaining(options)
+			let text2 = remainingGroups.toString()
+			browser.action.setBadgeText({
+				text: text1 + '|' + text2
+			})
+		} else {
+			// If countGroupsSwitch is disabled, display only text1
+			browser.action.setBadgeText({
+				text: text1 
+			})
+		}
 		browser.action.setBadgeBackgroundColor({
 			color: "#7e7e7e"
 		})
@@ -97,6 +107,9 @@ const restoreOptions = () => {
 		 document.getElementById('groupedTabsCount').innerText = options.groupedTabsCount;
 		 document.getElementById('groupsCount').innerText = options.groupsCount;
 
+		 const countGroupsSwitch = document.getElementById('countGroupsSwitch');
+		 countGroupsSwitch.dispatchEvent(new Event('change'));
+		 
 		});
 	});
 }
@@ -124,4 +137,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			localStorage.setItem('readMessage', true)
 		}, 2000);
 	}
+
+	// 获取checkbox和要显示/隐藏的元素
+	var checkbox = document.getElementById('countGroupsSwitch');
+	var displayElement = document.getElementById('maxGroupsWrap');
+
+	// 设置一个事件监听器来检查checkbox的状态
+	checkbox.addEventListener('change', function() {
+		if(this.checked) {
+			// 如果checkbox被选中，显示元素
+			displayElement.style.display = 'block';
+		} else {
+			// 如果checkbox未被选中，隐藏元素
+			displayElement.style.display = 'none';
+		}
+	});
+
+	// 初始设置 //和html同步也没用
+	if(checkbox.checked) { 
+		displayElement.style.display = 'block'; 
+	} else {
+		displayElement.style.display = 'none';
+	}
 });
+

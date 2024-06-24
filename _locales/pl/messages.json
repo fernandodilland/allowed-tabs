@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Maksymalna liczba grup tagów"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Ograniczyć całkowitą liczbę grup tagów?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Rozwinąć tylko jedną grupę kart jednocześnie?"
   }
 }

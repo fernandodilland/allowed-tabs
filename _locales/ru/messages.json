@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Максимальное количество групп тегов"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Ограничить общее количество групп тегов?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Развернуть только одну группу вкладок одновременно?"
   }
 }

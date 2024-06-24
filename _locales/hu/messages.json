@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "A címkecsoportok maximális száma"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Korlátozza a címkecsoportok számát?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Egyszerre csak egy lapcsoportot szeretne kibővíteni?"
   }
 }

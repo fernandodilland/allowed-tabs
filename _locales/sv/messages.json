@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Maximalt antal tagggrupper"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Begränsa det totala antalet tagggrupper?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Vill du bara utöka en flikgrupp samtidigt?"
   }
 }

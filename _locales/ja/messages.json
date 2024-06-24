@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "タググループの最大数"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "タググループの総数を制限しますか?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "同時に展開できるタブ グループは 1 つだけですか?"
   }
 }

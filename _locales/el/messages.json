@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Μέγιστος αριθμός ομάδων ετικετών"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Να περιοριστεί ο συνολικός αριθμός ομάδων ετικετών;"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Ανάπτυξη μόνο μιας ομάδας καρτελών ταυτόχρονα;"
   }
 }

@@ -190,3 +190,11 @@ h1 {
 }
 
 .hidden { display: none; }
+
+
+#countGroupsSwitch:not(:checked) ~ .parent > #maxGroupsWrap {
+	display: none;
+}
+#countGroupsSwitch:checked ~ .parent > #maxGroupsWrap {
+	display: block; 
+}

@@ -52,9 +52,9 @@
   },
 
   "string_for_countGroupedTabs": {
-    "message": "Faut-il compter les onglets groupés"
+    "message": "Limiter le nombre total de groupes de balises ?"
   },
   "string_for_groupsLimit": {
-    "message": "Nombre maximum de groupes de balises"
+    "message": "Développer un seul groupe d'onglets à la fois ?"
   }
 }
