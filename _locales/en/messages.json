@@ -57,6 +57,12 @@
   },
   "string_for_groupsLimit": {
     "message": "The upper limit of the number of label groups"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "limit the total number of tag groups?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "expand only one tab group at a time?"
   }
 
 }

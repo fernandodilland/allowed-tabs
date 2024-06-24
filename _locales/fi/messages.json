@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Tagiryhmien enimmäismäärä"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Rajoitatko tunnisteryhmien kokonaismäärää?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Laajennataanko vain yksi välilehtiryhmä samanaikaisesti?"
   }
 }

@@ -14,10 +14,6 @@ const totalRemaining = options =>
 	tabQuery(options)
 		.then(tabs => options.maxTotal - tabs.length)
 
-// const groupsRemaining = options =>
-// getGroupsCount(options)
-// 	.then(groups => options.maxGroups - groups.length)
-
 const groupsRemaining = options =>
 getGroupsCount()
 	.then(count => options.maxGroups - count)
@@ -45,6 +41,14 @@ const updateBadge = options => {
     })
 }
 
+const getOptions = () => new Promise((res, rej) => {
+	browser.storage.sync.get("defaultOptions", (defaults) => {
+		browser.storage.sync.get(defaults.defaultOptions, (options) => {
+			res(options);
+		})
+	})
+})
+
 const detectTooManyTabsInWindow = options => new Promise(res => {
 	tabQuery(options, { currentWindow: true }).then(tabs => {
 		if (options.maxWindow < 1) return;
@@ -60,26 +64,21 @@ const detectTooManyTabsInTotal = options => new Promise(res => {
 })
 
 
-function detectTooManyGroups(options) {
-    return getGroupsCount().then(count => {
-        if (count > options.maxGroups) {
-            return 'groups';
-        }
-        return new Promise(() => {});  
-    });
+async function detectTooManyGroups(options) {
+    // 获取选项
+    const options2 = await getOptions();
+    if(!options2.countGroupsSwitch) { return new Promise(() => {});  }
+
+    const count = await getGroupsCount();
+    if (count > options.maxGroups) {
+        return 'groups';
+    }
+    return new Promise(() => {});  
 }
 
 
-
-const getOptions = () => new Promise((res, rej) => {
-	browser.storage.sync.get("defaultOptions", (defaults) => {
-		browser.storage.sync.get(defaults.defaultOptions, (options) => {
-			res(options);
-		})
-	})
-})
-
-let alertTabId = null;
+// let isDragging = false;
+// let ForcedAlertTabId = null;
 const displayAlert = (options, place) => {
     return new Promise((res, rej) => {
 		if (!options.displayAlert) { return res(false) }
@@ -110,7 +109,7 @@ const displayAlert = (options, place) => {
 		console.log( renderedMessage)
 		// // // fix: alert(confirm) dialog not working 
 		browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			alertTabId = tabs[0].id;  
+			// ForcedAlertTabId = tabs[0].id;  
 			browser.scripting.executeScript({
 				target: {tabId: tabs[0].id},
 				function: function(message) {
@@ -190,20 +189,29 @@ const updateTabCount = () => new Promise(res => browser.tabs.query({}, tabs => {
 let passes = 0;
 
 const handleExceedTabs = (tab, options, place) => {
-	console.log(place)
-	if (options.exceedTabNewWindow && place === "window") {
-		browser.windows.create({ tabId: tab.id, focused: true});
-	} else {
-		browser.tabs.remove(tab.id, function() {
-			alertTabId = null;
-			if (browser.runtime.lastError) {
-				console.error(browser.runtime.lastError.message);
-			} else {}
-		});
-	}
+    console.log(place)
+    if (options.exceedTabNewWindow && place === "window") { //Fernando留的坑,place上下文还没写下去,业务逻辑应该是大于单页小于多页面
+		browser.windows.create({ tabId: tab.id, focused: true }).catch(console.error);
+    } else {
+		const removeTab = () => {
+            browser.tabs.remove(tab.id).then(() => {
+			// ForcedAlertTabId = null;
+            }).catch((error) => {
+                if (error.message === "Tabs cannot be edited right now (user may be dragging a tab).") {  // maybe different in Chrome or Firefox
+                    // 如果标签页正在被拖动，延迟100毫秒后再次尝试删除
+                    setTimeout(removeTab, 100);
+                } else {
+                    console.error(error);
+                }
+            });
+        };
+        removeTab();
+    }
 }
 
-const handleTabCreated = tab => options => {
+const handleTabCreated = tab => async options => {
+    // 在这里调用 collapseGroup
+    await app.collapseGroup(tab);
 	return Promise.race([
 		detectTooManyTabsInWindow(options),
 		detectTooManyTabsInTotal(options),
@@ -239,13 +247,15 @@ const app = {
 	init: function() {
 		browser.storage.sync.set({
 			defaultOptions: {
-				maxTotal: 30,
-				maxWindow: 30,
+				maxTotal: 99,
+				maxWindow: 99,
 				exceedTabNewWindow: false,
 				displayAlert: true,
 				countPinnedTabs: false, // added
 				countGroupedTabs: false, // added
-				maxGroups: 24, // added
+				maxGroups: 35, // added
+				countGroupsSwitch: true, // added
+				expand1GroupOnly: true, // added
 				displayBadge: true,
 				alertMessage: browser.i18n.getMessage("string_7")
 			}
@@ -255,18 +265,17 @@ const app = {
 			getOptions().then(handleTabCreated(tab))        
 		)
 
-		browser.tabs.onActivated.addListener(activeInfo => {
-			if (alertTabId !== null && alertTabId !== activeInfo.tabId) {
-				browser.windows.update(activeInfo.windowId, {focused: true})//test
-				browser.tabs.update(alertTabId, {active: true})
-			}
-		});
-
 		console.log("init", this)
 		browser.windows.onFocusChanged.addListener(app.update)
 		browser.tabs.onCreated.addListener(app.update)
 		browser.tabs.onRemoved.addListener(app.update)
 		browser.tabs.onUpdated.addListener(app.update)
+
+		browser.tabs.onActivated.addListener(app.collapseGroup)
+		browser.tabs.onUpdated.addListener(app.collapseGroup) // moved to  const handleTabCreated = tab => async options => { await app.collapseGroup(tab);
+		// browser.tabs.onCreated.addListener(app.collapseGroup)
+
+		// browser.tabGroups.onCreated.addListener()
 	},
 	update: () => {
 		updateTabCount();
@@ -289,6 +298,31 @@ const app = {
 				console.error('could be improved in future:', error);
 			});
 		});
+	},
+
+	collapseGroup: async function (activeInfo) {
+		// 获取选项
+		const options = await getOptions();
+		if(!options.expand1GroupOnly) { return; }
+	
+		if (typeof activeInfo.tabId !== 'number') {
+			console.error(' activeInfo has been remove => Tab ID must be a number');
+			return;
+		}
+		try {
+			const tab = await browser.tabs.get(activeInfo.tabId);
+			if (tab.active && tab.groupId !== -1) {
+				const tabs = await browser.tabs.query({});
+				let activeGroupId = tab.groupId;
+				let otherGroupTabs = tabs.filter(t => t.groupId !== -1 && t.groupId !== activeGroupId);
+				let otherGroupIds = [...new Set(otherGroupTabs.map(t => t.groupId))];
+				otherGroupIds.forEach(groupId => {
+					browser.tabGroups.update(groupId, { collapsed: true });
+				});
+			}
+		} catch (error) {
+			console.error('could be improved in future:', error);
+		}
 	}
 };
 

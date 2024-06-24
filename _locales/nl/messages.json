@@ -55,5 +55,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Maximum aantal taggroepen"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Het totale aantal taggroepen beperken?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Slechts één tabbladgroep tegelijk uitbreiden?"
   }
 }

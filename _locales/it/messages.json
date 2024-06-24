@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Numero massimo di gruppi di tag"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Limitare il numero totale di gruppi di tag?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Espandere un solo gruppo di schede contemporaneamente?"
   }
 }

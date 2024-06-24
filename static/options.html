@@ -11,8 +11,8 @@
 <body>
 	<!-- Header -->
 	&nbsp;
-	<div class="header">
-	<h1 align="center">__MSG_extensionName__</h1>
+	<div class="header" style="text-align: center;">
+		<h1>__MSG_extensionName__</h1>
 	</div>
 	<div id="options">
 
@@ -20,7 +20,7 @@
 		&nbsp;
 		<div class="parent">
 		<div class="specs">
-			<input id="maxTotal" type="number" min="1" max="99" style="width: 3em">
+			<input id="maxTotal" type="number" min="1" max="999" style="width: 3em">
 		</div>
 		<div class="specs2">
 			<label for="maxTotal">> __MSG_string_1__</label>
@@ -30,7 +30,7 @@
 		<!-- Input 2 -->
 		<div class="parent">
 		<div class="specs">
-			<input id="maxWindow" type="number" min="1" max="99" style="width: 3em">
+			<input id="maxWindow" type="number" min="1" max="999" style="width: 3em">
 		</div>
 		<div class="specs2">
 			<label for="maxTotal">> __MSG_string_2__</label>
@@ -88,8 +88,20 @@
 			</div>
 		</div>
 
-		<!-- Input 3 -->
+		&nbsp;
+
 		<div class="parent">
+			<div class="specs">
+				<label class="switch">
+				<input id="countGroupsSwitch" type="checkbox" checked>
+				<span class="slider round"></span>
+			</div>
+			<div class="specs2">
+				<label class="text_custom" for="countGroupsSwitch" id="countGroupsSwitchLabel">__MSG_string_for_countGroupsSwitch__</label>
+			</div>
+		</div>
+
+		<div id="maxGroupsWrap" class="parent">
 			<div class="specs">
 				<input id="maxGroups" type="number" min="1" max="99" style="width: 3em">
 			</div>
@@ -99,6 +111,19 @@
 			</div>
 		</div>
 
+		&nbsp;
+
+		<div class="parent">
+		<div class="specs">
+			<label class="switch">
+			<input id="expand1GroupOnly" type="checkbox" checked>
+			<span class="slider round"></span>
+		</div>
+		<div class="specs2">
+			<label class="text_custom" for="expand1GroupOnly" id="expand1GroupOnlyLabel">__MSG_string_for_expand1GroupOnly__</label>
+		</div>
+		</div>
+
 		<!-- Place to write the alert message -->
 		<input id="alertMessage" type="text">
 
@@ -106,7 +131,7 @@
 		<p id="status">__MSG_string_8__</p>
 
 		<!-- Developer info -->
-		<p id="developer">__MSG_string_10__: <a id="developer"; href="https://github.com/fernandodilland" target="_blank">Fernando Dilland</a> & <a id="developer"; href="https://github.com/king0billy" target="_blank">king liam</a>.</p>
+		<p id="developer">__MSG_string_10__: <a id="developer"; href="https://github.com/fernandodilland" target="_blank">Fernando Dilland</a> & <a id="developer"; href="https://github.com/king0billy" target="_blank">HydroWood0</a>.</p>
 	</div>
 	<script src="managerLanguage.js"></script>
 </body>

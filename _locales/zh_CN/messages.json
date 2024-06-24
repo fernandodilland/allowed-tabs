@@ -58,7 +58,10 @@
   "string_for_groupsLimit": {
     "message": "标签组数的上限"
   },
-  "string_for_countGroupsswitch": {
-    "message": "是否限制标签组"
+  "string_for_countGroupsSwitch": {
+    "message": "是否限制标签组的总数"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "是否同时只展开一个标签组"
   }
 }

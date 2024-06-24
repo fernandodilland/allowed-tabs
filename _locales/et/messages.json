@@ -56,5 +56,11 @@
   },
   "string_for_groupsLimit": {
     "message": "Maksimaalne sildirühmade arv"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Kas piirata sildirühmade koguarvu?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Kas laiendada ainult ühte vahelehtede rühma korraga?"
   }
 }
