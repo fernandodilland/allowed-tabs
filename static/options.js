@@ -30,12 +30,10 @@ const updateBadge = options => {
 		browser.action.setBadgeText({ text: "" })
 		return;
 	}
-
 	Promise.all([windowRemaining(options), totalRemaining(options)])
     .then(async remaining => {
         let text1 = Math.min(...remaining).toString();
         const remainingGroups = await groupsRemaining(options)
-		let text2 = remainingGroups.toString()
 		// Check if countGroupsSwitch is enabled
 		if (options.countGroupsSwitch) {
 			const remainingGroups = await groupsRemaining(options)

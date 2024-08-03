@@ -56,7 +56,7 @@
     "message": "count grouped tabs"
   },
   "string_for_groupsLimit": {
-    "message": "The upper limit of the number of label groups"
+    "message": "The upper limit of the number of tab groups"
   },
   "string_for_countGroupsSwitch": {
     "message": "limit the total number of tag groups?"

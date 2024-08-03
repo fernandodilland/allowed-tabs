@@ -20,24 +20,29 @@ getGroupsCount()
 
 const updateBadge = options => {
 	if (!options.displayBadge) {
-		browser.action.setBadgeText({
-		text: "" })
+		browser.action.setBadgeText({ text: "" })
 		return;
 	}
-
 	Promise.all([windowRemaining(options), totalRemaining(options)])
-    .then(remaining => {
+    .then(async remaining => {
         let text1 = Math.min(...remaining).toString();
-        return groupsRemaining(options)
-            .then(remainingGroups => {
-                let text2 = remainingGroups.toString();
-                browser.action.setBadgeText({
-                    text: text1 + '|' + text2
-                });
-                browser.action.setBadgeBackgroundColor({
-                    color: "#7e7e7e"
-                })
-            });
+        const remainingGroups = await groupsRemaining(options)
+		// Check if countGroupsSwitch is enabled
+		if (options.countGroupsSwitch) {
+			const remainingGroups = await groupsRemaining(options)
+			let text2 = remainingGroups.toString()
+			browser.action.setBadgeText({
+				text: text1 + '|' + text2
+			})
+		} else {
+			// If countGroupsSwitch is disabled, display only text1
+			browser.action.setBadgeText({
+				text: text1 
+			})
+		}
+		browser.action.setBadgeBackgroundColor({
+			color: "#7e7e7e"
+		})
     })
 }
 
