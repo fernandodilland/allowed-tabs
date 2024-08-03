@@ -65,7 +65,7 @@ const detectTooManyTabsInTotal = options => new Promise(res => {
 
 
 async function detectTooManyGroups(options) {
-    // 获取选项
+    // get options
     const options2 = await getOptions();
     if(!options2.countGroupsSwitch) { return new Promise(() => {});  }
 
@@ -190,7 +190,7 @@ let passes = 0;
 
 const handleExceedTabs = (tab, options, place) => {
     console.log(place)
-    if (options.exceedTabNewWindow && place === "window") { //Fernando留的坑,place上下文还没写下去,业务逻辑应该是大于单页小于多页面
+    if (options.exceedTabNewWindow && place === "window") { ////The pit left by Fernando, the place context has not been written yet, the business logic should be larger than a single page and smaller than multiple pages.
 		browser.windows.create({ tabId: tab.id, focused: true }).catch(console.error);
     } else {
 		const removeTab = () => {
@@ -198,7 +198,7 @@ const handleExceedTabs = (tab, options, place) => {
 			// ForcedAlertTabId = null;
             }).catch((error) => {
                 if (error.message === "Tabs cannot be edited right now (user may be dragging a tab).") {  // maybe different in Chrome or Firefox
-                    // 如果标签页正在被拖动，延迟100毫秒后再次尝试删除
+                    // If the tab is being dragged, try deleting it again after a 100 millisecond delay.
                     setTimeout(removeTab, 100);
                 } else {
                     console.error(error);
@@ -210,7 +210,7 @@ const handleExceedTabs = (tab, options, place) => {
 }
 
 const handleTabCreated = tab => async options => {
-    // 在这里调用 collapseGroup
+    // collapseGroup is called here
     await app.collapseGroup(tab);
 	return Promise.race([
 		detectTooManyTabsInWindow(options),
@@ -301,7 +301,7 @@ const app = {
 	},
 
 	collapseGroup: async function (activeInfo) {
-		// 获取选项
+		// get options
 		const options = await getOptions();
 		if(!options.expand1GroupOnly) { return; }
 	

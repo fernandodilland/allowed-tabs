@@ -17,9 +17,6 @@
 [Install it directly from the Microsoft Store](https://microsoftedge.microsoft.com/addons/detail/bedgmdmofacooedgglodglabbelmekha).
 
 ## Changelog
-`2024-07-todo`
-- 能开关同时显示多少个剩余标签和组的开关
-- drag有bug!会导致我排序标签页的时候出问题,UI不更新
 
 `2024-06`
 - Fix extension's collapse after draging while handling exceeded tag(mainly caused by touchpad).
