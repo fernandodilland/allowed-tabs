@@ -53,5 +53,14 @@
 
   "string_for_countGroupedTabs": {
     "message": "Да се броят ли групираните табове"
+  },
+  "string_for_groupsLimit": {
+    "message": "Максимален брой групи етикети"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Ограничаване на общия брой групи маркери?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Да се ​​разшири ли само една група раздели едновременно?"
   }
 }

@@ -18,6 +18,22 @@
 
 ## Changelog
 
+`2024-06`
+- Fix extension's collapse after draging while handling exceeded tag(mainly caused by touchpad).
+- Add 2 buttons about tab groups. 
+- only tested via Edge, never via Chrome （cannot work in Firefox bcz serverworker is not supported in Firefox）.  
+
+`2024-05`
+- Forcing an upper limit on the number of tag groups.
+- Auto-collapse any other groups when focous on one group.
+
+`2024-02`
+- Add pinned & grouped support
+- Update Manifest to V3.
+- Change all "chrome." to "chrome.||browser." to fit Firefox(no test yet)
+- Change "window.alert" to "window.confirm" (some URL like chrome:// and extension store, as well as switching active tabs won't show confirm window and close tab immediately)
+- some errors is uncaught or showing up, but don't affect the extension's function
+
 `2021-07`
 
 Features:

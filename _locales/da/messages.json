@@ -53,5 +53,14 @@
 
   "string_for_countGroupedTabs": {
     "message": "Skal grupperede faner tælles med"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maksimalt antal taggrupper"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Vil du begrænse det samlede antal taggrupper?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Vil du kun udvide én fanegruppe på samme tid?"
   }
 }

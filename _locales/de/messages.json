@@ -53,5 +53,14 @@
 
   "string_for_countGroupedTabs": {
     "message": "Sollen gruppierte Tabs gezählt werden"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maximale Anzahl an Tag-Gruppen"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Gesamtzahl der Tag-Gruppen begrenzen?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Nur eine Tab-Gruppe gleichzeitig erweitern?"
   }
 }
