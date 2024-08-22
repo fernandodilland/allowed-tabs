@@ -50,8 +50,16 @@
   "string_for_countPinnedTabs": {
     "message": "Berekent u de vastgezette tabbladen"
   },
-
   "string_for_countGroupedTabs": {
     "message": "Berekent u de gegroepeerde tabbladen"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maximum aantal taggroepen"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Het totale aantal taggroepen beperken?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Slechts één tabbladgroep tegelijk uitbreiden?"
   }
 }

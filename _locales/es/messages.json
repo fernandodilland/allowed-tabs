@@ -53,5 +53,14 @@
 
   "string_for_countGroupedTabs": {
     "message": "Contar pestañas agrupadas"
+  },
+  "string_for_groupsLimit": {
+    "message": "Número máximo de grupos de etiquetas"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "¿Limitar el número total de grupos de etiquetas?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "¿Expandir solo un grupo de pestañas al mismo tiempo?"
   }
 }

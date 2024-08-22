@@ -53,5 +53,14 @@
 
   "string_for_countGroupedTabs": {
     "message": "Počítat se seskupenými kartami"
+  },
+  "string_for_groupsLimit": {
+    "message": "Maximální počet skupin značek"
+  },
+  "string_for_countGroupsSwitch": {
+    "message": "Omezit celkový počet skupin značek?"
+  },
+  "string_for_expand1GroupOnly": {
+    "message": "Rozbalit pouze jednu skupinu karet současně?"
   }
 }

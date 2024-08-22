@@ -7,6 +7,12 @@ const tabQuery = (options, params = {}) => new Promise(res => {
 
 // tabQuery({countPinnedTabs: false, countGroupedTabs: false})
 
+const getGroupsCount = () => new Promise(res => {
+    browser.tabGroups.query({}, function(groups) {
+        res(groups.length); 
+    });
+});
+
 const windowRemaining = options =>
 	tabQuery(options, { currentWindow: true })
 		.then(tabs => options.maxWindow - tabs.length)
@@ -15,18 +21,36 @@ const totalRemaining = options =>
 	tabQuery(options)
 		.then(tabs => options.maxTotal - tabs.length)
 
+const groupsRemaining = options =>
+	getGroupsCount()
+		.then(count => options.maxGroups - count)
+
 const updateBadge = options => {
 	if (!options.displayBadge) {
 		browser.action.setBadgeText({ text: "" })
 		return;
 	}
-
 	Promise.all([windowRemaining(options), totalRemaining(options)])
-	.then(remaining => {
-		browser.action.setBadgeText({
-			text: Math.min(...remaining).toString()
+    .then(async remaining => {
+        let text1 = Math.min(...remaining).toString();
+        const remainingGroups = await groupsRemaining(options)
+		// Check if countGroupsSwitch is enabled
+		if (options.countGroupsSwitch) {
+			const remainingGroups = await groupsRemaining(options)
+			let text2 = remainingGroups.toString()
+			browser.action.setBadgeText({
+				text: text1 + '|' + text2
+			})
+		} else {
+			// If countGroupsSwitch is disabled, display only text1
+			browser.action.setBadgeText({
+				text: text1 
+			})
+		}
+		browser.action.setBadgeBackgroundColor({
+			color: "#7e7e7e"
 		})
-	})
+    })
 }
 
 let $inputs;
@@ -77,8 +101,13 @@ const restoreOptions = () => {
 				input[valueType] = options[input.id];
 			};
 		
-		document.getElementById('pinnedTabsCount').innerText = options.pinnedTabsCount;
-		document.getElementById('groupedTabsCount').innerText = options.groupedTabsCount;
+		 document.getElementById('pinnedTabsCount').innerText = options.pinnedTabsCount;
+		 document.getElementById('groupedTabsCount').innerText = options.groupedTabsCount;
+		 document.getElementById('groupsCount').innerText = options.groupsCount;
+
+		 const countGroupsSwitch = document.getElementById('countGroupsSwitch');
+		 countGroupsSwitch.dispatchEvent(new Event('change'));
+		 
 		});
 	});
 }
@@ -106,4 +135,23 @@ document.addEventListener('DOMContentLoaded', () => {
 			localStorage.setItem('readMessage', true)
 		}, 2000);
 	}
+
+	// Get the checkbox and elements to show/hide
+	var checkbox = document.getElementById('countGroupsSwitch');
+	var displayElement = document.getElementById('maxGroupsWrap');
+
+	checkbox.addEventListener('change', function() {
+		if(this.checked) {
+			displayElement.style.display = 'block';
+		} else {
+			displayElement.style.display = 'none';
+		}
+	});
+
+	if(checkbox.checked) { 
+		displayElement.style.display = 'block'; 
+	} else {
+		displayElement.style.display = 'none';
+	}
 });
+

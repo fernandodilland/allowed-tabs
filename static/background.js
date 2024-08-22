@@ -14,23 +14,45 @@ const totalRemaining = options =>
 	tabQuery(options)
 		.then(tabs => options.maxTotal - tabs.length)
 
+const groupsRemaining = options =>
+getGroupsCount()
+	.then(count => options.maxGroups - count)
+
 const updateBadge = options => {
 	if (!options.displayBadge) {
-		browser.action.setBadgeText({
-		text: "" })
+		browser.action.setBadgeText({ text: "" })
 		return;
 	}
-
 	Promise.all([windowRemaining(options), totalRemaining(options)])
-	.then(remaining => {
-		browser.action.setBadgeText({
-			text: Math.min(...remaining).toString()
-		});
+    .then(async remaining => {
+        let text1 = Math.min(...remaining).toString();
+        const remainingGroups = await groupsRemaining(options)
+		// Check if countGroupsSwitch is enabled
+		if (options.countGroupsSwitch) {
+			const remainingGroups = await groupsRemaining(options)
+			let text2 = remainingGroups.toString()
+			browser.action.setBadgeText({
+				text: text1 + '|' + text2
+			})
+		} else {
+			// If countGroupsSwitch is disabled, display only text1
+			browser.action.setBadgeText({
+				text: text1 
+			})
+		}
 		browser.action.setBadgeBackgroundColor({
 			color: "#7e7e7e"
 		})
-	})
+    })
 }
+
+const getOptions = () => new Promise((res, rej) => {
+	browser.storage.sync.get("defaultOptions", (defaults) => {
+		browser.storage.sync.get(defaults.defaultOptions, (options) => {
+			res(options);
+		})
+	})
+})
 
 const detectTooManyTabsInWindow = options => new Promise(res => {
 	tabQuery(options, { currentWindow: true }).then(tabs => {
@@ -46,15 +68,22 @@ const detectTooManyTabsInTotal = options => new Promise(res => {
 	});
 })
 
-const getOptions = () => new Promise((res, rej) => {
-	browser.storage.sync.get("defaultOptions", (defaults) => {
-		browser.storage.sync.get(defaults.defaultOptions, (options) => {
-			res(options);
-		})
-	})
-})
 
-let alertTabId = null;
+async function detectTooManyGroups(options) {
+    // get options
+    const options2 = await getOptions();
+    if(!options2.countGroupsSwitch) { return new Promise(() => {});  }
+
+    const count = await getGroupsCount();
+    if (count > options.maxGroups) {
+        return 'groups';
+    }
+    return new Promise(() => {});  
+}
+
+
+// let isDragging = false;
+// let ForcedAlertTabId = null;
 const displayAlert = (options, place) => {
     return new Promise((res, rej) => {
 		if (!options.displayAlert) { return res(false) }
@@ -85,7 +114,7 @@ const displayAlert = (options, place) => {
 		console.log( renderedMessage)
 		// // // fix: alert(confirm) dialog not working 
 		browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			alertTabId = tabs[0].id;  
+			// ForcedAlertTabId = tabs[0].id;  
 			browser.scripting.executeScript({
 				target: {tabId: tabs[0].id},
 				function: function(message) {
@@ -129,8 +158,6 @@ const displayAlert = (options, place) => {
 }
 
 
-
-
 const getPinnedTabsCount = () => new Promise(res => {
     browser.tabs.query({pinned: true}, tabs => res(tabs.length));
 });
@@ -139,6 +166,12 @@ const getGroupedTabsCount = () => new Promise(res => {
     browser.tabs.query({}, tabs => {
         const groupedTabs = tabs.filter(tab => tab.groupId !== browser.tabGroups.TAB_GROUP_ID_NONE);
         res(groupedTabs.length);
+    });
+});
+
+const getGroupsCount = () => new Promise(res => {
+    browser.tabGroups.query({}, function(groups) {
+        res(groups.length); 
     });
 });
 
@@ -161,23 +194,33 @@ const updateTabCount = () => new Promise(res => browser.tabs.query({}, tabs => {
 let passes = 0;
 
 const handleExceedTabs = (tab, options, place) => {
-	console.log(place)
-	if (options.exceedTabNewWindow && place === "window") {
-		browser.windows.create({ tabId: tab.id, focused: true});
-	} else {
-		browser.tabs.remove(tab.id, function() {
-			alertTabId = null;
-			if (browser.runtime.lastError) {
-				console.error(browser.runtime.lastError.message);
-			} else {}
-		});
-	}
+    console.log(place)
+    if (options.exceedTabNewWindow && place === "window") { ////The pit left by Fernando, the place context has not been written yet, the business logic should be larger than a single page and smaller than multiple pages.
+		browser.windows.create({ tabId: tab.id, focused: true }).catch(console.error);
+    } else {
+		const removeTab = () => {
+            browser.tabs.remove(tab.id).then(() => {
+			// ForcedAlertTabId = null;
+            }).catch((error) => {
+                if (error.message === "Tabs cannot be edited right now (user may be dragging a tab).") {  // maybe different in Chrome or Firefox
+                    // If the tab is being dragged, try deleting it again after a 100 millisecond delay.
+                    setTimeout(removeTab, 100);
+                } else {
+                    console.error(error);
+                }
+            });
+        };
+        removeTab();
+    }
 }
 
-const handleTabCreated = tab => options => {
+const handleTabCreated = tab => async options => {
+    // collapseGroup is called here
+    await app.collapseGroup(tab);
 	return Promise.race([
 		detectTooManyTabsInWindow(options),
-		detectTooManyTabsInTotal(options)
+		detectTooManyTabsInTotal(options),
+		detectTooManyGroups(options)  
 	])
 	.then((place) => updateTabCount().then(amountOfTabsCreated => {
 		if (passes > 0) {
@@ -209,12 +252,15 @@ const app = {
 	init: function() {
 		browser.storage.sync.set({
 			defaultOptions: {
-				maxTotal: 56,
-				maxWindow: 56,
+				maxTotal: 99,
+				maxWindow: 99,
 				exceedTabNewWindow: false,
 				displayAlert: true,
 				countPinnedTabs: false, // added
 				countGroupedTabs: false, // added
+				maxGroups: 35, // added
+				countGroupsSwitch: true, // added
+				expand1GroupOnly: true, // added
 				displayBadge: true,
 				alertMessage: browser.i18n.getMessage("string_7")
 			}
@@ -224,18 +270,17 @@ const app = {
 			getOptions().then(handleTabCreated(tab))        
 		)
 
-		browser.tabs.onActivated.addListener(activeInfo => {
-			if (alertTabId !== null && alertTabId !== activeInfo.tabId) {
-				browser.windows.update(activeInfo.windowId, {focused: true})//test
-				browser.tabs.update(alertTabId, {active: true})
-			}
-		});
-
 		console.log("init", this)
 		browser.windows.onFocusChanged.addListener(app.update)
 		browser.tabs.onCreated.addListener(app.update)
 		browser.tabs.onRemoved.addListener(app.update)
 		browser.tabs.onUpdated.addListener(app.update)
+
+		browser.tabs.onActivated.addListener(app.collapseGroup)
+		browser.tabs.onUpdated.addListener(app.collapseGroup) // moved to  const handleTabCreated = tab => async options => { await app.collapseGroup(tab);
+		// browser.tabs.onCreated.addListener(app.collapseGroup)
+
+		// browser.tabGroups.onCreated.addListener()
 	},
 	update: () => {
 		updateTabCount();
@@ -246,12 +291,43 @@ const app = {
 				}),
 				getGroupedTabsCount().then(count => {
 					options.groupedTabsCount = count;
+				}),
+				getGroupsCount().then(count => {
+					options.groupsCount = count;
 				})
 			]).then(() => {
-				browser.storage.sync.set({defaultOptions: options});
+				return browser.storage.sync.set({defaultOptions: options});
+			}).then(() => {
 				updateBadge(options);
+			}).catch(error => {
+				console.error('could be improved in future:', error);
 			});
 		});
+	},
+
+	collapseGroup: async function (activeInfo) {
+		// get options
+		const options = await getOptions();
+		if(!options.expand1GroupOnly) { return; }
+	
+		if (typeof activeInfo.tabId !== 'number') {
+			console.error(' activeInfo has been remove => Tab ID must be a number');
+			return;
+		}
+		try {
+			const tab = await browser.tabs.get(activeInfo.tabId);
+			if (tab.active && tab.groupId !== -1) {
+				const tabs = await browser.tabs.query({});
+				let activeGroupId = tab.groupId;
+				let otherGroupTabs = tabs.filter(t => t.groupId !== -1 && t.groupId !== activeGroupId);
+				let otherGroupIds = [...new Set(otherGroupTabs.map(t => t.groupId))];
+				otherGroupIds.forEach(groupId => {
+					browser.tabGroups.update(groupId, { collapsed: true });
+				});
+			}
+		} catch (error) {
+			console.error('could be improved in future:', error);
+		}
 	}
 };
 
